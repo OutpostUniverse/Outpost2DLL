@@ -37,7 +37,7 @@ enum Truck_Cargo {
 	truckCommonRubble,			// 6
 	truckRareRubble,			// 7
 	truckSpaceport,				// 8
-	truckGarbage,				// 9
+	truckGarbage,				// 9  Wreckage
 
 	truckUnit = 0x03F8			// 3F8
 };
