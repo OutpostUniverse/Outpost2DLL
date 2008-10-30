@@ -51,7 +51,7 @@ public:
 	void SetOppFiredUpon(int);
 	void SetTruckCargo(enum Truck_Cargo cargoType, int amount);
 	void SetWeapon(enum map_id weaponType);
-	int isDiscovered() const;
+	int isDiscovered() const;		// Checks if a Wreckage unit has been discovered
 	int isEMPed() const;
 
 protected:
