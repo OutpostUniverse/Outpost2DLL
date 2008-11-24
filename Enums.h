@@ -11,7 +11,7 @@ enum compare_mode
 	cmpLowerEqual,				// 1
 	cmpGreaterEqual,			// 2
 	cmpLower,					// 3
-	cmpGreater					// 4
+	cmpGreater,					// 4
 };
 
 // Used by CreateResourceTrigger
@@ -23,7 +23,7 @@ enum trig_res
 	resKids,					// 3
 	resWorkers,					// 4
 	resScientists,				// 5
-	resColonists				// 6
+	resColonists,				// 6
 };
 
 // Used by Unit.SetCargo
@@ -39,7 +39,7 @@ enum Truck_Cargo {
 	truckSpaceport,				// 8
 	truckGarbage,				// 9  Wreckage
 
-	truckUnit = 0x03F8			// 3F8
+	truckUnit = 0x03F8,			// 3F8
 };
 
 // Returned by _Player.FoodSupply()
@@ -48,7 +48,7 @@ enum FoodStatus
 	foodRising = 0,				// 0
 	foodNoChange,				// 1 - pretty hard, if not impossible to achieve with food
 	foodFalling,				// 2
-	foodShortage				// 3
+	foodShortage,				// 3
 };
 
 // Returned by _Player.MoraleLevel()
@@ -58,15 +58,15 @@ enum MoraleLevels
 	moraleGood,					// 1
 	moraleOK,					// 2
 	moralePoor,					// 3
-	moraleRotten				// 4
+	moraleRotten,				// 4
 };
 
 // Used by ScGroup.GetFirstOfType, ScGroup.UnitCount, and classes
 // derived from ScGroup which inherit these functions
 // (BuildingGroup, FightGroup, MiningGroup)
-enum UnitClassifactions 
+enum UnitClassifications 
 {
-	clsAttack = 0,				// 0 (Lynx, Panther, Tiger, Scorpion)
+	clsAttack = 0,				// 0 (Lynx, Panther, Tiger, Scorpion)  [Not ESG, EMP, or Stickyfoam]
 	clsESG,						// 1 (Lynx, Panther, Tiger)
 	clsEMP,						// 2 (Lynx, Panther, Tiger)
 	clsStickyfoam,				// 3 (Lynx, Panther, Tiger)
@@ -75,15 +75,15 @@ enum UnitClassifactions
 	clsRepairVehicle,			// 6
 	clsCargoTruck,				// 7
 	clsEarthworker,				// 8
-	clsColony,					// 9 (RoboSurveyor, RoboMiner, GeoCon, Scout, RoboDozer, EvacuationTransport)
+	clsColony,					// 9 (clsVehicle, not specified elsewhere) (RoboSurveyor, RoboMiner, GeoCon, Scout, RoboDozer, EvacuationTransport)
 	clsVehicleFactory,			// A
 	clsArachnidFactory,			// B
 	clsStructureFactory,		// C
-
-	clsGuardPost = 0xE,			// E
-	clsBuilding,				// F (does not include Arachnid Factory, includes beacons, disasters, Blast, Tube, pretty much any non vehicle?)
-
-	clsAll = 0x11				// 11 All vehicles and buildings
+	clsOreMine,					// D (CommonOreMine, RareOreMine)
+	clsGuardPost,				// E
+	clsBuilding,				// F (more like non vehicle, and non other specified class) (does not include Arachnid Factory, includes beacons, disasters, Blast, Tube, pretty much any non vehicle?)
+	clsNotSet = 0x10,			// 10 
+	clsAll = 0x11,				// 11 All vehicles and buildings
 };
 // Note: clsAttack applies to all attack vehicles with the following weapons:
 //		Microwave
@@ -103,31 +103,31 @@ enum UnitClassifactions
 // Used to define music playlists
 enum SongIds 
 {
-	songEden11 = 0,
-	songEden21,
-	songEden22,
-	songEden31,
-	songEden32,
-	songEden33,
-	songEP41,
-	songEP42,
-	songEP43,
-	songEP51,
-	songEP52,
-	songEP61,
-	songEP62,
-	songEP63,
-	songPlymth11,
-	songPlymth12,
-	songPlymth21,
-	songPlymth22,
-	songPlymth31,
-	songPlymth32,
-	songPlymth33,
-	songStatic01,
-	songStatic02,
-	songStatic03,
-	songStatic04,
-	songStatic05
+	songEden11 = 0,		// 0x0
+	songEden21,			// 0x1
+	songEden22,			// 0x2
+	songEden31,			// 0x3
+	songEden32,			// 0x4
+	songEden33,			// 0x5
+	songEP41,			// 0x6
+	songEP42,			// 0x7
+	songEP43,			// 0x8
+	songEP51,			// 0x9
+	songEP52,			// 0xA
+	songEP61,			// 0xB
+	songEP62,			// 0xC
+	songEP63,			// 0xD
+	songPlymth11,		// 0xE
+	songPlymth12,		// 0xF
+	songPlymth21,		// 0x10
+	songPlymth22,		// 0x11
+	songPlymth31,		// 0x12
+	songPlymth32,		// 0x13
+	songPlymth33,		// 0x14
+	songStatic01,		// 0x15
+	songStatic02,		// 0x16
+	songStatic03,		// 0x17
+	songStatic04,		// 0x18
+	songStatic05,		// 0x19
 };
 
