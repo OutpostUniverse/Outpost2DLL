@@ -15,7 +15,7 @@ private:
 	int unknown;
 };
 
-// Vehicles (enumerate all units for a certain player)
+// Vehicles (enumerate all vehicles for a certain player)
 class OP2 PlayerVehicleEnum
 {
 public:
@@ -34,7 +34,8 @@ public:
 	class PlayerBuildingEnum & operator = (class PlayerBuildingEnum const &);
 	int GetNext(class Unit &currentUnit);	// Returns 0 when done
 private:
-	int unknown1, unknown2;
+	int currentUnitPtr;		// Unit* currentUnit
+	map_id buildingType;
 };
 
 // Units (enumerate all units of a certain player)
@@ -54,7 +55,7 @@ class OP2 ClosestEnumerator
 public:
 	ClosestEnumerator(struct LOCATION const &location);
 	class ClosestEnumerator & operator = (class ClosestEnumerator const &);
-	int GetNext(class Unit &currentUnit, unsigned long &distance);
+	int GetNext(class Unit &currentUnit, unsigned long &pixelDistance);	
 private:
 	int unknown[13];
 };
