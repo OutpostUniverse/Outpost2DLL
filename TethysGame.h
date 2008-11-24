@@ -26,27 +26,27 @@ public:
 	class TethysGame & operator = (class TethysGame const &);
 
 	// Player Number and Number of Players
-	static int __fastcall LocalPlayer();			// Returns the local player number
-	static int __fastcall NoPlayers();				// Returns number of players (including comp)
+	static int __fastcall LocalPlayer();			// Returns the local player index
+	static int __fastcall NoPlayers();				// Returns number of players (including both Human and AI)
 
 	// Multiplayer game options  [Get Property]
 	static int __fastcall UsesDayNight();
 	static int __fastcall UsesMorale();
-	static int __fastcall InitialUnits();		// Number of Laser/Microwave Lynx to start with
 	static int __fastcall CanHaveDisasters();
+	static int __fastcall InitialUnits();		// Number of Laser/Microwave Lynx to start with
 	static int __fastcall CanAllowCheats();
 
 	// Game Time
-	static int __fastcall Tick();
-	static int __fastcall Time();
+	static int __fastcall Tick();	// Current time (tick is the smallest slice of game time)
+	static int __fastcall Time();	// Current tick / 4  (most processing is only done every 4 ticks)
 
 	// Game Sounds and Voice warnings
-	// Note: Recorded voice messages can be played by specifying the right soundID
-	static void __fastcall AddMapSound(int soundID, struct LOCATION location);
-	static void __fastcall AddGameSound(int soundID, int recipientPlayerNum);
+	// Note: Recorded voice messages can be played by specifying the right soundIndex
+	static void __fastcall AddGameSound(int soundIndex, int toPlayerNum);
+	static void __fastcall AddMapSound(int soundIndex, struct LOCATION location);
 	// Message log
-	static void __fastcall AddMessage(int pixelX, int pixelY, char *message, int recipientPlayerNum, int soundID);
-	static void __fastcall AddMessage(class Unit owner, char *message, int recipientPlayerNum, int soundID);
+	static void __fastcall AddMessage(int pixelX, int pixelY, char *message, int toPlayerNum, int soundIndex);
+	static void __fastcall AddMessage(class Unit owner, char *message, int toPlayerNum, int soundIndex);
 
 	// Debug/Cheat flags
 	static void __fastcall SetDaylightEverywhere(int boolOn);
@@ -66,8 +66,8 @@ public:
 	static int __fastcall CreateUnitBlock(class _Player &, char const *text, int);
 
 	// Morale Level
-	static void __fastcall ForceMoraleGood(int playerNum);
 	static void __fastcall ForceMoraleGreat(int playerNum);
+	static void __fastcall ForceMoraleGood(int playerNum);
 	static void __fastcall ForceMoraleOK(int playerNum);
 	static void __fastcall ForceMoralePoor(int playerNum);
 	static void __fastcall ForceMoraleRotten(int playerNum);
@@ -92,8 +92,8 @@ public:
 	static void __fastcall SetEMPMissile(int launchTileX, int launchTileY, int setToZero, int destTileX, int destTileY);	// Set third param to 0
 
 	// Load/Save Games
-	static void __fastcall LoadGame(char const *);
 	static void __fastcall SaveGame(char const *);
+	static void __fastcall LoadGame(char const *);
 
 	// Misc
 	static void __fastcall SetMusicPlayList(int numSongs, int repeatStartIndex, enum SongIds *songIdList);
