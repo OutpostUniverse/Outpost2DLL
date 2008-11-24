@@ -31,7 +31,7 @@ public:
 	void SetId(int id);
 
 private:
-	int ID;
+	int scStubIndex;
 };
 
 
@@ -70,13 +70,13 @@ public:
 	// void * Pinwheel::`scalar deleting destructor'(unsigned int);
 	void SendWaveNow(int);
 	void SetAttackComp(int,int,struct MrRec *);
-	void SetAttackFraction(int);
+	void SetAttackFraction(int attackFraction);
 	void SetContactDelay(int);
 	void SetGuardComp(int,int,struct MrRec *);
 	void SetNoRange(int,int);
 	void SetPoints(struct PWDef *);
 	void SetSapperComp(int,int,struct MrRec *);
-	void SetWavePeriod(int,int);
+	void SetWavePeriod(int minTime, int maxTime);
 };
 
 
@@ -101,13 +101,13 @@ public:
 	void AddUnits(class UnitBlock &unitsToAdd);
 	void ClearTargCount();
 	int GetFirstOfType(class Unit &returnedUnit, enum UnitClassifactions unitType);
-	int GetFirstOfType(class Unit &returnedUnit, enum map_id unitType, enum map_id weaponType);
+	int GetFirstOfType(class Unit &returnedUnit, enum map_id unitType, enum map_id cargoOrWeapon);
 	int HasBeenAttacked();
 	void RemoveUnit(class Unit unitToRemove);
 	void SetDeleteWhenEmpty(int boolDelete);
 	void SetLights(int boolOn);
 	void SetTargCount(class UnitBlock &unitTypes);
-	void SetTargCount(enum map_id unitType, enum map_id weaponType, int refValue);
+	void SetTargCount(enum map_id unitType, enum map_id weaponType, int targetCount);
 	void TakeAllUnits(class ScGroup &groupToAdd);
 	void TakeUnit(class Unit unitToAdd);
 	int TotalUnitCount();
@@ -135,16 +135,33 @@ public:
 	class BuildingGroup & operator=(class BuildingGroup const &);
 	// void * BuildingGroup::`vector deleting destructor'(unsigned int);
 	// void * BuildingGroup::`scalar deleting destructor'(unsigned int);
-	void RecordBuilding(struct LOCATION &where,enum map_id unitType,enum map_id cargoWeapType);
-	void RecordBuilding(struct LOCATION &,enum map_id,enum map_id,class ScGroup &);
-	void RecordTube(struct LOCATION &where);
+	void RecordBuilding(struct LOCATION &buildingLocation, enum map_id unitType, enum map_id cargoOrWeapon);
+	void RecordBuilding(struct LOCATION &buildingLocation, enum map_id unitType, enum map_id cargoOrWeapon, class ScGroup& );
+	void RecordTube(struct LOCATION &tubeLocation);
 	void RecordTubesTouching(struct LOCATION &where);
 	void RecordUnitBlock(class UnitBlock &);
 	void RecordUnitBlock(class UnitBlock &,class ScGroup &);
-	void RecordVehReinforceGroup(class ScGroup &destination, int priority); // 0 = lowest priority, 0xFFFF = highest
+	void RecordVehReinforceGroup(class ScGroup &targetGroup, int priority); // 0 = lowest priority, 0xFFFF = highest
 	void RecordWall(struct LOCATION &,enum map_id);
 	void SetRect(struct MAP_RECT &defaultLocation);
 	void UnRecordVehGroup(class ScGroup &group);
+};
+
+
+// Note: The MiningGroup is a class used to setup mining routes with
+//		 cargo trucks.
+
+class OP2 MiningGroup : public ScGroup
+{
+public:
+	MiningGroup();
+	~MiningGroup() {};
+	class MiningGroup & operator=(class MiningGroup const &);
+	// void * MiningGroup::`vector deleting destructor'(unsigned int);
+	// void * MiningGroup::`scalar deleting destructor'(unsigned int);
+	void Setup(struct LOCATION& mine, struct LOCATION& smelter, struct MAP_RECT &);
+	void Setup(struct LOCATION& mine, struct LOCATION& smelter, enum map_id mineType, enum map_id smelterType, struct MAP_RECT &);
+	void Setup(class Unit mine, class Unit smelter, struct MAP_RECT &smelterArea);
 };
 
 
@@ -179,22 +196,3 @@ public:
 	void SetTargetGroup(class ScGroup); // Use in combination with DoGuardGroup()
 	void SetTargetUnit(class Unit);
 };
-
-
-// Note: The MiningGroup is a class used to setup mining routes with
-//		 cargo trucks.
-
-class OP2 MiningGroup : public ScGroup
-{
-public:
-	MiningGroup();
-	~MiningGroup() {};
-	class MiningGroup & operator=(class MiningGroup const &);
-	// void * MiningGroup::`vector deleting destructor'(unsigned int);
-	// void * MiningGroup::`scalar deleting destructor'(unsigned int);
-	void Setup(struct LOCATION &,struct LOCATION &,struct MAP_RECT &);
-	void Setup(struct LOCATION &,struct LOCATION &,enum map_id,enum map_id,struct MAP_RECT &);
-	void Setup(class Unit smelter,class Unit mine,struct MAP_RECT &smelterArea);
-};
-
-
