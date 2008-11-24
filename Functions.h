@@ -26,27 +26,27 @@ OP2 class Trigger __fastcall CreateVictoryCondition(int boolEnable, int /*Must b
 OP2 class Trigger __fastcall CreateFailureCondition(int boolEnable, int ignoredParam, class Trigger &failureTrigger, char const *notUsed);
 
 // Other triggers
-OP2 class Trigger __fastcall CreateBuildingCountTrigger(int boolEnable, int boolNoRepeat, int playerNum, int refCount, enum compare_mode, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateVehicleCountTrigger(int boolEnable, int boolNoRepeat, int playerNum, int refCount, enum compare_mode compareType, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateCountTrigger(int boolEnable, int boolNoRepeat, int playerNum, enum map_id unitType, enum map_id, int refCount, enum compare_mode compareType, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateAttackedTrigger(int boolEnable, int boolNoRepeat, class ScGroup &, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateDamagedTrigger(int boolEnable, int boolNoRepeat, class ScGroup &, int damage, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateEscapeTrigger(int boolEnable, int boolNoRepeat, int playerNum, int x, int y, int width, int height, int refValue, enum map_id unitType, int cargoType, int cargoAmount, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateEvacTrigger(int boolEnable, int boolNoRepeat, int refValue, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateKitTrigger(int boolEnable, int boolNoRepeat, int playerNum, enum map_id, int refCount, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateMidasTrigger(int boolEnable, int boolNoRepeat, int time, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateOnePlayerLeftTrigger(int boolEnable, int boolNoRepeat, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateOperationalTrigger(int boolEnable, int boolNoRepeat, int playerNum, enum map_id buildingType, int refValue, enum compare_mode compareType, char const *triggerFunction);
-OP2 class Trigger __fastcall CreatePointTrigger(int boolEnable, int boolNoRepeat, int playerNum, int x, int y, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateRectTrigger(int boolEnable, int boolNoRepeat, int playerNum, int x, int y, int width, int height, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateResearchTrigger(int boolEnable, int boolNoRepeat, int techID, int playerNum, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateResourceTrigger(int boolEnable, int boolNoRepeat, enum trig_res resourceType, int refAmount, int playerNum, enum compare_mode compareType, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateTimeTrigger(int boolEnable, int boolNoRepeat, int timeMin, int timeMax, char const *triggerFunction);
-OP2 class Trigger __fastcall CreateTimeTrigger(int boolEnable, int boolNoRepeat, int time, char const *triggerFunction);
-OP2 class Trigger __cdecl CreateSetTrigger(int boolEnable, int boolNoRepeat, int totalTriggers, int neededTriggers, char const *triggerFunction,...); // +list of triggers
+OP2 class Trigger __fastcall CreateBuildingCountTrigger(int bEnabled, int bOneShot, int playerNum, int refCount, enum compare_mode, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateVehicleCountTrigger(int bEnabled, int bOneShot, int playerNum, int refCount, enum compare_mode compareType, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateCountTrigger(int bEnabled, int bOneShot, int playerNum, enum map_id unitType, enum map_id cargoOrWeapon, int refCount, enum compare_mode compareType, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateAttackedTrigger(int bEnabled, int bOneShot, class ScGroup &, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateDamagedTrigger(int bEnabled, int bOneShot, class ScGroup &, int damage, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateEscapeTrigger(int bEnabled, int bOneShot, int playerNum, int x, int y, int width, int height, int refValue, enum map_id unitType, int cargoType, int cargoAmount, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateEvacTrigger(int bEnabled, int bOneShot, int playerNum, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateKitTrigger(int bEnabled, int bOneShot, int playerNum, enum map_id, int refCount, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateMidasTrigger(int bEnabled, int bOneShot, int time, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateOnePlayerLeftTrigger(int bEnabled, int bOneShot, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateOperationalTrigger(int bEnabled, int bOneShot, int playerNum, enum map_id buildingType, int refValue, enum compare_mode compareType, char const *triggerFunction);
+OP2 class Trigger __fastcall CreatePointTrigger(int bEnabled, int bOneShot, int playerNum, int x, int y, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateRectTrigger(int bEnabled, int bOneShot, int playerNum, int x, int y, int width, int height, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateResearchTrigger(int bEnabled, int bOneShot, int techID, int playerNum, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateResourceTrigger(int bEnabled, int bOneShot, enum trig_res resourceType, int refAmount, int playerNum, enum compare_mode compareType, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateTimeTrigger(int bEnabled, int bOneShot, int timeMin, int timeMax, char const *triggerFunction);
+OP2 class Trigger __fastcall CreateTimeTrigger(int bEnabled, int bOneShot, int time, char const *triggerFunction);
+OP2 class Trigger __cdecl CreateSetTrigger(int bEnabled, int bOneShot, int totalTriggers, int neededTriggers, char const *triggerFunction, ...); // +list of triggers
 
-OP2 class Trigger __fastcall CreateSpecialTarget(int, int, class Unit &, enum map_id, char const *triggerFunction);
-OP2 void __fastcall GetSpecialTargetData(class Trigger &, class Unit &);
+OP2 class Trigger __fastcall CreateSpecialTarget(int boolEnable, int boolNoRepeat, class Unit & specialTarget /* Lab */, enum map_id sourceUnitType /* mapScout */, char const *triggerFunction);
+OP2 void __fastcall GetSpecialTargetData(class Trigger & specialTargetTrigger, class Unit & sourceUnit /* Scout */);
 
 // Output preparation function
 // See the "snprintf" documentation in a C language reference.
