@@ -32,9 +32,9 @@ public:
 	// Multiplayer game options  [Get Property]
 	static int __fastcall UsesDayNight();
 	static int __fastcall UsesMorale();
+	static int __fastcall InitialUnits();		// Number of Laser/Microwave Lynx to start with
 	static int __fastcall CanHaveDisasters();
 	static int __fastcall CanAllowCheats();
-	static int __fastcall InitialUnits();
 
 	// Game Time
 	static int __fastcall Tick();
@@ -42,8 +42,8 @@ public:
 
 	// Game Sounds and Voice warnings
 	// Note: Recorded voice messages can be played by specifying the right soundID
-	static void __fastcall AddGameSound(int soundID, int recipientPlayerNum);
 	static void __fastcall AddMapSound(int soundID, struct LOCATION location);
+	static void __fastcall AddGameSound(int soundID, int recipientPlayerNum);
 	// Message log
 	static void __fastcall AddMessage(int pixelX, int pixelY, char *message, int recipientPlayerNum, int soundID);
 	static void __fastcall AddMessage(class Unit owner, char *message, int recipientPlayerNum, int soundID);
@@ -78,14 +78,14 @@ public:
 	static int __fastcall GetRand(int range);		// Returns a number from 0 to (range-1)
 
 	// Disasters
-	static void __fastcall SetEarthquake(int tileX, int tileY, int magnitude);
-	static void __fastcall SetEruption(int tileX, int tileY, int);
-	static void __fastcall SetLightning(int tileX, int tileY, int duration, int, int);
 	static void __fastcall SetMeteor(int tileX, int tileY, int size);
-	static void __fastcall SetTornado(int tileX, int tileY, int duration, int, int, int boolNoIdea);
+	static void __fastcall SetEarthquake(int tileX, int tileY, int magnitude);
+	static void __fastcall SetEruption(int tileX, int tileY, int spreadSpeed);
+	static void __fastcall SetLightning(int startTileX, int startTileY, int duration, int endTileX, int endTileY);
+	static void __fastcall SetTornado(int startTileX, int startTileY, int duration, int endTileX, int endTileY, int bImmediate);
 	// Disaster spread speed
-	static void __fastcall SetLavaSpeed(int speed);
-	static void __fastcall SetMicrobeSpreadSpeed(int speed);
+	static void __fastcall SetLavaSpeed(int spreadSpeed);
+	static void __fastcall SetMicrobeSpreadSpeed(int spreadSpeed);
 
 	// EMP Missile
 	static struct LOCATION  __fastcall FindEMPMissleTarget(int,int,int,int,int);
