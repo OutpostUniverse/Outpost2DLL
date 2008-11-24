@@ -18,7 +18,7 @@ class OP2 _Player
 public:
 	_Player(int);
 	class _Player & operator=(class _Player const &);
-	void AllyWith(int playerId);
+	void AllyWith(int playerNum);
 	void CaptureRLV(int);
 	void CenterViewOn(int tileX, int tileY);
 	int Difficulty() const;
