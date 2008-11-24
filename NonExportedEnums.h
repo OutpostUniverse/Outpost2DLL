@@ -12,17 +12,37 @@
 
 const int AllPlayers = -1;
 
+enum PlayerNum
+{
+	PlayerAll = -1,
+	Player0 = 0,
+	Player1 = 1,
+	Player2 = 2,
+	Player3 = 3,
+	Player4 = 4,
+	Player5 = 5,
+	Player6 = 6,
+};
+
+enum PlayerDifficulty
+{
+	DiffEasy = 0,
+	DiffNormal = 1,
+	DiffHard = 2,
+};
 
 // Mining beacon's
 enum BeaconTypes
 {
-	CommonOre = 0,
-	RareOre = 1,
+	OreTypeRandom = -1,
+	OreTypeCommon = 0,
+	OreTypeRare = 1,
 };
 
 // Yield Type's (Number of "Bars" a mine has)
 enum Yield
 {
+	BarRandom = -1,
 	Bar3 = 0,
 	Bar2 = 1,
 	Bar1 = 2,
