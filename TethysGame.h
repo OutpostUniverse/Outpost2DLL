@@ -29,50 +29,72 @@ public:
 	static void __fastcall AddMapSound(int soundID, struct LOCATION location);
 	static void __fastcall AddMessage(int pixelX, int pixelY, char *message, int recipientPlayerNum, int soundID);
 	static void __fastcall AddMessage(class Unit owner, char *message, int recipientPlayerNum, int soundID);
-	static int __fastcall CanAllowCheats();
-	static int __fastcall CanHaveDisasters();
-	static int __fastcall CreateBeacon(enum map_id beaconType, int x, int y, 
-			int commonRareType, int barYield, int barVariant);
-	static int __fastcall CreateUnit(class Unit &returnedUnit, enum map_id unitType, 
-			struct LOCATION location, int playerNum, enum map_id weaponCargoType, int rotation);
-	static int __fastcall CreateUnitBlock(class _Player &, char const *text, int);
-	static int __fastcall CreateWallOrTube(int tileX, int tileY, int, enum map_id wallTubeType);
-	static int __fastcall CreateWreck(int tileX, int tileY, enum map_id techID, int boolAllPlayers); // Note: techID must be >= 8000 but < (8000+4096)
-	static struct LOCATION  __fastcall FindEMPMissleTarget(int,int,int,int,int);
-	static void __fastcall ForceMoraleGood(int playerNum);
-	static void __fastcall ForceMoraleGreat(int playerNum);
-	static void __fastcall ForceMoraleOK(int playerNum);
-	static void __fastcall ForceMoralePoor(int playerNum);
-	static void __fastcall ForceMoraleRotten(int playerNum);
-	static void __fastcall FreeMoraleLevel(int playerNum);
-	static int __fastcall GetRand(int range);		// Returns a number from 0 to (range-1)
-	static int __fastcall InitialUnits();
-	static void __fastcall LoadGame(char const *);
+
+	// Player Number and Number of Players
 	static int __fastcall LocalPlayer();			// Returns the local player number
 	static int __fastcall NoPlayers();				// Returns number of players (including comp)
-	static int __fastcall PlaceMarker(class Unit &junk, int x, int y, int markerType);
-	static void __fastcall SaveGame(char const *);
+	// User set mission parameters
+	static int __fastcall UsesDayNight();
+	static int __fastcall UsesMorale();
+	static int __fastcall CanHaveDisasters();
+	static int __fastcall CanAllowCheats();
+	static int __fastcall InitialUnits();
+
+	// Debug flags and cheats
 	static void __fastcall SetCheatFastProduction(int boolOn);			// Useless
 	static void __fastcall SetCheatFastUnits(int boolOn);				// Useless
 	static void __fastcall SetCheatProduceAll(int boolOn);				// Useless
 	static void __fastcall SetCheatUnlimitedResources(int boolOn);		// Useless
 	static void __fastcall SetDaylightEverywhere(int boolOn);
 	static void __fastcall SetDaylightMoves(int boolOn);
+
+	// Unit Creation
+	static int __fastcall CreateUnit(class Unit &returnedUnit, enum map_id unitType, 
+			struct LOCATION location, int playerNum, enum map_id weaponCargoType, int rotation);
+	static int __fastcall CreateBeacon(enum map_id beaconType, int x, int y, 
+			int commonRareType, int barYield, int barVariant);
+	static int __fastcall CreateWreck(int tileX, int tileY, enum map_id techID, int boolAllPlayers); // Note: techID must be >= 8000 but < (8000+4096)
+	static int __fastcall PlaceMarker(class Unit &junk, int x, int y, int markerType);
+	static int __fastcall CreateWallOrTube(int tileX, int tileY, int, enum map_id wallTubeType);
+	static int __fastcall CreateUnitBlock(class _Player &, char const *text, int);
+
+	// Morale Level
+	static void __fastcall ForceMoraleGood(int playerNum);
+	static void __fastcall ForceMoraleGreat(int playerNum);
+	static void __fastcall ForceMoraleOK(int playerNum);
+	static void __fastcall ForceMoralePoor(int playerNum);
+	static void __fastcall ForceMoraleRotten(int playerNum);
+	static void __fastcall FreeMoraleLevel(int playerNum);
+
+	// Random number generation
+	static void __fastcall SetSeed(unsigned int randNumSeed);	// Set random number seed
+	static int __fastcall GetRand(int range);		// Returns a number from 0 to (range-1)
+
+	// Load/Save Games
+	static void __fastcall LoadGame(char const *);
+	static void __fastcall SaveGame(char const *);
+
+	// EMP Missile
+	static struct LOCATION  __fastcall FindEMPMissleTarget(int,int,int,int,int);
 	static void __fastcall SetEMPMissile(int launchTileX, int launchTileY, int setToZero, int 
 			destTileX, int destTileY);				// Set third param to 0
+
+	// Disasters
 	static void __fastcall SetEarthquake(int tileX, int tileY, int magnitude);
 	static void __fastcall SetEruption(int tileX, int tileY, int);
-	static void __fastcall SetLavaSpeed(int speed);
 	static void __fastcall SetLightning(int tileX, int tileY, int duration, int, int);
 	static void __fastcall SetMeteor(int tileX, int tileY, int size);
-	static void __fastcall SetMicrobeSpreadSpeed(int speed);
-	static void __fastcall SetMusicPlayList(int numSongs, int repeatStartIndex, enum SongIds *songIdList);
-	static void __fastcall SetSeed(unsigned int randNumSeed);	// Set random number seed
 	static void __fastcall SetTornado(int tileX, int tileY, int duration, int, int, int boolNoIdea);
+	// Disaster spread speed
+	static void __fastcall SetLavaSpeed(int speed);
+	static void __fastcall SetMicrobeSpreadSpeed(int speed);
+
+	// Time
 	static int __fastcall Tick();
 	static int __fastcall Time();
-	static int __fastcall UsesDayNight();
-	static int __fastcall UsesMorale();
+
+	// Misc
+	static void __fastcall SetMusicPlayList(int numSongs, int repeatStartIndex, enum SongIds *songIdList);
 private:
 	static void __fastcall sIssueOptPacket(int, int);
 };
