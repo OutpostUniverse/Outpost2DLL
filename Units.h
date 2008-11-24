@@ -20,13 +20,13 @@ public:
 	int operator == (class Unit const &)const;
 	void ClearSpecialTarget();
 	void DoAttack(class Unit);
-	void DoBuild(enum map_id whatToBuild,struct LOCATION whereToBuild);
+	void DoBuild(enum map_id buildingType,struct LOCATION location);
 	void DoDeath();
 	void DoDevelop(enum map_id);
 	void DoIdle();
 	void DoInfect();
 	void DoLaunch(int,int,int);
-	void DoMove(struct LOCATION loc);
+	void DoMove(struct LOCATION location);
 	void DoSelfDestruct();
 	void DoSetLights(int boolOn);
 	void DoStop();
@@ -47,7 +47,7 @@ public:
 	void SetCargo(enum map_id cargoType, enum map_id weaponType);
 	void SetDamage(int damage);
 	void SetFactoryCargo(int bay, enum map_id unitType, enum map_id cargoOrWeaponType);
-	void SetId(int);
+	void SetId(int newUnitId);
 	void SetOppFiredUpon(int);
 	void SetTruckCargo(enum Truck_Cargo cargoType, int amount);
 	void SetWeapon(enum map_id weaponType);
@@ -55,7 +55,7 @@ public:
 	int isEMPed() const;
 
 protected:
-	void DoSimpleCommand(int);
+	void DoSimpleCommand(int commandPacketType);
 private:
 	char* StoreSelf(struct CommandPacket &) const;
 
@@ -70,13 +70,22 @@ public:	// Why not? :)
 class OP2 UnitBlock
 {
 public:
-	UnitBlock(struct UnitRecord *);
-	class UnitBlock & operator=(class UnitBlock const &);
-	int CreateUnits(int, int) const;
+	UnitBlock(struct UnitRecord* unitRecordTable);
+	UnitBlock& operator=(UnitBlock const &unitBlock);
+	int CreateUnits(int playerNum, int bLightsOn) const;	// Returns numUnitsCreated
 private:
-	void SortAndInit(struct UnitRecord *);
+	void SortAndInit(struct UnitRecord* unitRecordTable);	// Sort unitRecordTable and initialize classRange table
 
-	int unknown[34];
+public:
+	struct Range
+	{
+		int startIndex;
+		int untilIndex;
+	};
+
+	int numUnits;							// 0x0
+	Range classRange[16];					// 0x4 Range of unit indexes in the unitRecordTable for each class
+	struct UnitRecord* unitRecordTable;		// 0x84
 };
 
 
