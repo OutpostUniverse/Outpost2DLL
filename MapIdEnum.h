@@ -7,16 +7,10 @@
 //		 It also names all weapon types and starship modules
 //		 as well as a few other miscellaneous things.
 
-// Uncommment this to use old names from enum map_id
-// for a quick and dirty compile of old code (but not 
-// necesarily all of it)
-//#define CompatibleNames
-
-
 enum map_id {
 	mapAny = -1,					// FF Use to specify 'all' or 'any'
 
-	mapNone = 0,
+	mapNone = 0,					// 00
 	mapCargoTruck,					// 01
 	mapConVec,						// 02
 	mapSpider,						// 03
@@ -42,7 +36,6 @@ enum map_id {
 	mapCommonOreMine,				// 15
 	mapRareOreMine,					// 16
 	mapGuardPost,					// 17
-
 	mapLightTower,					// 18
 	mapCommonStorage,				// 19
 	mapRareStorage,					// 1A
@@ -85,19 +78,19 @@ enum map_id {
 	mapMicrowave,					// 3E
 	mapRailGun,						// 3F
 	mapRPG,							// 40
-	mapStarflare,					// 41
-	mapSupernova,					// 42
-	mapStarflare2,					// 43 Explosion of some kind (upgraded starflare?)
-	mapSupernova2,					// 44 Bigger explosion (upgraded supernova?)
-	//mapNormalExplosion,			// 45 Explosion (looks same as 43) Self destruct? (upgraded?)
-	mapESG = 0x46,					// 46
+	mapStarflare,					// 41 Vehicle Starflare
+	mapSupernova,					// 42 Vehicle Supernova
+	mapStarflare2,					// 43 GuardPost Starflare
+	mapSupernova2,					// 44 GuardPost Supernova
+	mapNormalUnitExplosion,			// 45
+	mapESG,							// 46
 	mapStickyfoam,					// 47
 	mapThorsHammer,					// 48
 	mapEnergyCannon,				// 49
 
 	mapBlast,						// 4A EMP/Sticky foam blast
+	//mapUnknown4B,					// 4B Unknown what this is  "BFG"
 
-	//mapUnknown4B,					// 4B Unknown what this is
 	mapLightning = 0x4C,			// 4C
 	mapVortex,						// 4D
 	mapEarthquake,					// 4E
@@ -145,139 +138,7 @@ enum map_id {
 	mapSpider3Pack,					// 70
 	mapScorpion3Pack,				// 71
 
-	mapPrettyArt					// 72
+	mapPrettyArt,					// 72 (Used for explosions)
 
-#ifdef CompatibleNames
-	,
-	map_Any = -1,
-
-	map_None = 0,
-	map_Cargo_Truck,			// 01
-	map_ConVec,					// 02
-	map_Spider,					// 03
-	map_Scorpion,				// 04
-	map_Lynx,					// 05
-	map_Panther,				// 06
-	map_Tiger,					// 07
-	map_Robo_Surveyor,			// 08
-	map_Robo_Miner,				// 09
-	map_GeoCon,					// 0A
-	map_Scout,					// 0B
-	map_Robo_Dozer,				// 0C
-	map_Evacuation_Transport,	// 0D
-	map_Repair_Vehicle,			// 0E
-	map_Earthworker,			// 0F
-	map_SmallCapacityAirTransport,	// 10 Crashes game when it moves (looks like a scout)
-
-	map_Tube,					// 11
-	map_Wall,					// 12
-	map_Lava_Wall,				// 13
-	map_Microbe_Wall,			// 14
-	map_Mine,					// 15
-	map_Common_Ore_Mine = 0x15,	// Duplicate name
-	map_Rare_Ore_Mine,			// 16
-	map_Guard_Post,				// 17
-	map_Light_Tower,			// 18
-	map_Common_Storage,			// 19
-	map_Rare_Storage,			// 1A
-	map_Forum,					// 1B
-	map_Command_Center,			// 1C
-	map_MHD_Generator,			// 1D
-	map_Residence,				// 1E
-	map_Robot_Command,			// 1F
-	map_Trade_Center,			// 20
-	map_Basic_Lab,				// 21
-	map_Medical_Center,			// 22
-	map_Nursery,				// 23
-	map_Solar_Power_Array,		// 24
-	map_Recreation_Facility,	// 25
-	map_University,				// 26
-	map_Agridome,				// 27
-	map_DIRT,					// 28
-	map_Garage,					// 29
-	map_Magma_Well,				// 2A
-	map_Meteor_Defense,			// 2B
-	map_Geothermal_Plant,		// 2C
-	map_Arachnid_Factory,		// 2D
-	map_Consumer_Factory,		// 2E
-	map_Structure_Factory,		// 2F
-	map_Vehicle_Factory,		// 30
-	map_Standard_Lab,			// 31
-	map_Advanced_Lab,			// 32
-	map_Observatory,			// 33
-	map_Reinforced_Residence,	// 34
-	map_Advanced_Residence,		// 35
-	map_Common_Ore_Smelter,		// 36
-	map_Spaceport,				// 37
-	map_Rare_Ore_Smelter,		// 38
-	map_GORF,					// 39
-	map_Tokamak,				// 3A
-
-	map_Acid_Cloud = 0x3B,		// 3B
-	map_EMP,					// 3C
-	map_Laser,					// 3D
-	map_Microwave,				// 3E
-	map_Rail_Gun,				// 3F
-	map_RPG,					// 40
-	map_Starflare,				// 41
-	map_Supernova,				// 42
-	map_Starflare2,				// 43
-	map_Supernova2,				// 44
-	// map_Normal_Explosion
-	map_ESG = 0x46,				// 46
-	map_Stickyfoam,				// 47
-	map_Thors_Hammer,			// 48
-	map_Energy_Cannon,			// 49
-
-	map_Blast,					// 4A EMP/Sticky foam blast
-
-	map_Lightning = 0x4C,		// 4C
-	map_Vortex,					// 4D
-	map_Earthquake,				// 4E
-	map_Eruption,				// 4F
-	map_Meteor,					// 50
-
-	map_Mining_Beacon,			// 51
-	map_Magma_Vent,				// 52
-	map_Fumarole,				// 53
-
-	map_Wreckage,				// 54
-
-	map_Disasterous_Building_Explosion,		// 55
-	map_Catastrophic_Building_Explosion,	// 56
-	map_Atheist_Building_Explosion,			// 57
-
-	map_EDWARD_Satellite,		// 58 Lynx (in Cargo Truck)
-	map_Solar_Satellite,		// 59 Wreckage (in Cargo Truck)
-	map_Ion_Drive_Module,		// 5A Gene Bank 5 (in Cargo Truck)
-	map_Fusion_Drive_Module,	// 5B
-	map_Command_Module,			// 5C
-	map_Fueling_Systems,		// 5D
-	map_Habitat_Ring,			// 5E
-	map_Sensor_Package,			// 5F
-	map_Skydock,				// 60
-	map_Stasis_Systems,			// 61
-	map_Orbital_Package,		// 62
-	map_Phoenix_Module,         // 63
-
-	map_Rare_Metals_Cargo,		// 64
-	map_Common_Metals_Cargo,	// 65
-	map_Food_Cargo,				// 66
-	map_Evacuation_Module,		// 67
-	map_Children_Module,		// 68
-
-	map_SULV,					// 69
-	map_RLV,					// 6A
-	map_EMP_Missile,			// 6B
-
-	map_Impulse_Items,			// 6C
-	map_Wares,					// 6D
-	map_Luxury_Wares,			// 6E
-
-	map_Inter_Colony_Shuttle,	// 6F
-	map_Spider_3_Pack,			// 70
-	map_Scorpion_3_Pack,		// 71
-
-	map_Pretty_Art				// 72
-#endif
+	mapGeneralUnit,					// 73 Don't try to create this unless you're implementing a new unit class
 };
