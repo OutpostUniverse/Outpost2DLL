@@ -1,3 +1,4 @@
+#pragma once
 
 // Note: This is the main DLL SDK include file. Including this file
 //		 will in turn include every other header file which defines
@@ -21,10 +22,14 @@
 #include "Enums.h"
 #include "Structs.h"
 #include "Player.h"
-#include "Units.h"
+#include "Unit.h"
+#include "UnitBlock.h"
+#include "ScStub.h"
 #include "Groups.h"
+#include "Trigger.h"
 #include "Enumerators.h"
 #include "TethysGame.h"
+#include "GameMap.h"
 #include "NonExportedEnums.h"
 #include "Functions.h"
 // Include the header file which contains definitions

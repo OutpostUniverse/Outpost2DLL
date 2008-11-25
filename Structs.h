@@ -19,10 +19,10 @@ struct OP2 LOCATION
 public:
 	LOCATION(int tileX, int tileY)	{ this->x = tileX; this->y = tileY; };
 	LOCATION();						// { this->x = 0; this->y = 0; };
-	struct LOCATION & operator = (struct LOCATION const &);
-	void Add(struct LOCATION const &vector);
+	LOCATION& operator = (const LOCATION& location);
+	void Add(const LOCATION& vector);
 	void Clip();
-	static struct LOCATION __fastcall Difference(struct LOCATION const &firstOperand, struct LOCATION const &secondOperand);
+	static LOCATION __fastcall Difference(const LOCATION& a, const LOCATION& b);
 	int Norm();
 
 public:
@@ -32,26 +32,23 @@ public:
 struct OP2 MAP_RECT
 {
 public:
-	MAP_RECT(struct LOCATION const &topLeftTile, struct LOCATION const &bottomRightTile);
+	MAP_RECT(const LOCATION& topLeftTile, const LOCATION& bottomRightTile);
 	MAP_RECT(int tileX1, int tileY1, int tileX2, int tileY2); // Top left: (tileX1, tileY1), Bottom right: (tileX2, tileY2)
 	MAP_RECT();
-	struct MAP_RECT & operator = (struct MAP_RECT const &);
-	int Check(struct LOCATION &ptToCheck);		// int bInRect  [Checks if the point is in the rect  [handles x wrap around for rect coordinates]]
+	MAP_RECT& operator = (const MAP_RECT& mapRect);
+	int Check(LOCATION& ptToCheck);		// int bInRect  [Checks if the point is in the rect  [handles x wrap around for rect coordinates]]
 	void ClipToMap();
-	void FromPtSize(struct LOCATION const &, struct LOCATION const &);
+	void FromPtSize(const LOCATION&, const LOCATION&);
 	int Height() const;
 	void Inflate(int unitsWide, int unitsHigh);
 	void Offset(int shiftRight, int shiftDown);
-	struct LOCATION RandPt() const;
-	struct LOCATION Size() const;
+	LOCATION RandPt() const;
+	LOCATION Size() const;
 	int Width() const;
 
 public:
 	int x1, y1, x2, y2;		// Top left: (x1, y1), Bottom right: (x2, y2)
 };
-
-
-
 
 
 // Note: These following structs have their names defined by the exported

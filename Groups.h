@@ -1,3 +1,4 @@
+#pragma once
 
 // Note: This file is used to define all the group related classes exported
 //		 from Outpost2.exe. It also contains the Pinwheel class (which is
@@ -5,81 +6,19 @@
 //		 derives from the same base class as all the others).
 
 
-
-// Note: ScStub is the main parent class of all other classes in this file.
-//		 Any functions defined here on this class are available to any
-//		 instance of the derived classes.
-// Note: Do not try to create an instance of this class. It was meant
-//		 simply as a base parent class from which other classes inherit
-//		 functions from. Creating an instance of this class serves little
-//		 (or no) purpose and may even crash the game.
-
-class OP2 ScStub
-{
-public:
-	ScStub();
-	~ScStub();
-	class ScStub & operator=(class ScStub const &);
-	// void * ScStub::`vector deleting destructor'(unsigned int);
-	// void * ScStub::`scalar deleting destructor'(unsigned int);
-	void Destroy();
-	void Disable();
-	void Enable();
-	int Id() const;
-	int IsEnabled();
-	int IsInitialized();
-	void SetId(int id);
-
-private:
-	int scStubIndex;
-};
+#include "ScStub.h"
 
 
-
-// Note: This is the trigger class returned by all the trigger creation
-//		 functions. It can be used to control an active trigger.
-// Note: The trigger class is only a stub that refers to an internal
-//		 class that handles the trigger. It is seldom necessary to use
-//		 this class to control a trigger and it is usually destroyed
-//		 shortly after it is returned from the trigger creation function.
-
-class OP2 Trigger : public ScStub
-{
-public:
-	Trigger();
-	~Trigger() {};
-	class Trigger & operator=(class Trigger const &);
-	// void * Trigger::`vector deleting destructor'(unsigned int);
-	// void * Trigger::`scalar deleting destructor'(unsigned int);
-	void Disable();
-	void Enable();
-	int HasFired(int);
-};
-
-
-// Note: The Pinwheel class seems to be used for controlling waves
-//		 of attacks.
-
-class OP2 Pinwheel : public ScStub
-{
-public:
-	Pinwheel();
-	~Pinwheel() {};
-	class Pinwheel & operator=(class Pinwheel const &);
-	// void * Pinwheel::`vector deleting destructor'(unsigned int);
-	// void * Pinwheel::`scalar deleting destructor'(unsigned int);
-	void SendWaveNow(int);
-	void SetAttackComp(int,int,struct MrRec *);
-	void SetAttackFraction(int attackFraction);
-	void SetContactDelay(int);
-	void SetGuardComp(int,int,struct MrRec *);
-	void SetNoRange(int,int);
-	void SetPoints(struct PWDef *);
-	void SetSapperComp(int,int,struct MrRec *);
-	void SetWavePeriod(int minTime, int maxTime);
-};
-
-
+// Forward declare
+enum map_id;
+enum UnitClassifactions;
+struct LOCATION;
+struct MAP_RECT;
+struct MrRec;
+struct PWDef;
+struct PatrolRoute;
+class UnitBlock;
+class Unit;
 
 
 // Note: ScGroup is the main parent class of all other group classes.
@@ -95,33 +34,29 @@ class OP2 ScGroup : public ScStub
 public:
 	ScGroup();
 	~ScGroup() {};
-	class ScGroup & operator=(class ScGroup const &);
-	// void * ScGroup::`vector deleting destructor'(unsigned int);
-	// void * ScGroup::`scalar deleting destructor'(unsigned int);
-	void AddUnits(class UnitBlock &unitsToAdd);
+	ScGroup& operator = (const ScGroup& scGroup);
+
+	void AddUnits(UnitBlock& unitsToAdd);
 	void ClearTargCount();
-	int GetFirstOfType(class Unit &returnedUnit, enum UnitClassifactions unitType);
-	int GetFirstOfType(class Unit &returnedUnit, enum map_id unitType, enum map_id cargoOrWeapon);
+	int GetFirstOfType(Unit& returnedUnit, UnitClassifactions unitType);
+	int GetFirstOfType(Unit& returnedUnit, map_id unitType, map_id cargoOrWeapon);
 	int HasBeenAttacked();
-	void RemoveUnit(class Unit unitToRemove);
+	void RemoveUnit(Unit unitToRemove);
 	void SetDeleteWhenEmpty(int boolDelete);
 	void SetLights(int boolOn);
-	void SetTargCount(class UnitBlock &unitTypes);
-	void SetTargCount(enum map_id unitType, enum map_id weaponType, int targetCount);
-	void TakeAllUnits(class ScGroup &groupToAdd);
-	void TakeUnit(class Unit unitToAdd);
+	void SetTargCount(UnitBlock& unitTypes);
+	void SetTargCount(map_id unitType, map_id weaponType, int targetCount);
+	void TakeAllUnits(ScGroup& groupToAdd);
+	void TakeUnit(Unit unitToAdd);
 	int TotalUnitCount();
-	int UnitCount(enum UnitClassifactions criteria);
+	int UnitCount(UnitClassifactions criteria);
 };
-
-
 
 
 // Note: Do not try to create any of the following classes using only their
 //		 constructors. Doing so will likely crash the game. Instead, create
 //		 these classes by calling the group creation functions defined in
 //		 Functions.h.
-
 
 
 // Note: The BuildingGroup class is used to control Structure Factories,
@@ -132,19 +67,18 @@ class OP2 BuildingGroup : public ScGroup
 public:
 	BuildingGroup();
 	~BuildingGroup() {};
-	class BuildingGroup & operator=(class BuildingGroup const &);
-	// void * BuildingGroup::`vector deleting destructor'(unsigned int);
-	// void * BuildingGroup::`scalar deleting destructor'(unsigned int);
-	void RecordBuilding(struct LOCATION &buildingLocation, enum map_id unitType, enum map_id cargoOrWeapon);
-	void RecordBuilding(struct LOCATION &buildingLocation, enum map_id unitType, enum map_id cargoOrWeapon, class ScGroup& );
-	void RecordTube(struct LOCATION &tubeLocation);
-	void RecordTubesTouching(struct LOCATION &where);
-	void RecordUnitBlock(class UnitBlock &);
-	void RecordUnitBlock(class UnitBlock &,class ScGroup &);
-	void RecordVehReinforceGroup(class ScGroup &targetGroup, int priority); // 0 = lowest priority, 0xFFFF = highest
-	void RecordWall(struct LOCATION &,enum map_id);
-	void SetRect(struct MAP_RECT &defaultLocation);
-	void UnRecordVehGroup(class ScGroup &group);
+	BuildingGroup& operator = (const BuildingGroup& buildingGroup);
+
+	void RecordBuilding(LOCATION &buildingLocation, map_id unitType, map_id cargoOrWeapon);
+	void RecordBuilding(LOCATION &buildingLocation, map_id unitType, map_id cargoOrWeapon, ScGroup&);
+	void RecordTube(LOCATION& tubeLocation);
+	void RecordTubesTouching(LOCATION &startLocation);
+	void RecordUnitBlock(UnitBlock&);
+	void RecordUnitBlock(UnitBlock&, ScGroup&);
+	void RecordVehReinforceGroup(ScGroup& targetGroup, int priority); // 0 = lowest priority, 0xFFFF = highest
+	void RecordWall(LOCATION& location, map_id);
+	void SetRect(MAP_RECT &defaultLocation);
+	void UnRecordVehGroup(ScGroup& group);
 };
 
 
@@ -156,12 +90,11 @@ class OP2 MiningGroup : public ScGroup
 public:
 	MiningGroup();
 	~MiningGroup() {};
-	class MiningGroup & operator=(class MiningGroup const &);
-	// void * MiningGroup::`vector deleting destructor'(unsigned int);
-	// void * MiningGroup::`scalar deleting destructor'(unsigned int);
-	void Setup(struct LOCATION& mine, struct LOCATION& smelter, struct MAP_RECT &);
-	void Setup(struct LOCATION& mine, struct LOCATION& smelter, enum map_id mineType, enum map_id smelterType, struct MAP_RECT &);
-	void Setup(class Unit mine, class Unit smelter, struct MAP_RECT &smelterArea);
+	MiningGroup& operator = (const MiningGroup& miningGroup);
+
+	void Setup(LOCATION& mine, LOCATION& smelter, MAP_RECT&);
+	void Setup(LOCATION& mine, LOCATION& smelter, map_id mineType, map_id smelterType, MAP_RECT &);
+	void Setup(Unit mine, Unit smelter, MAP_RECT& smelterArea);
 };
 
 
@@ -174,10 +107,9 @@ class OP2 FightGroup : public ScGroup
 public:
 	FightGroup();
 	~FightGroup() {};
-	class FightGroup & operator=(class FightGroup const &);
-	// void * FightGroup::`vector deleting destructor'(unsigned int);
-	// void * FightGroup::`scalar deleting destructor'(unsigned int);
-	void AddGuardedRect(struct MAP_RECT &);
+	FightGroup& operator = (const FightGroup& fightGroup);
+
+	void AddGuardedRect(MAP_RECT&);
 	void ClearCombineFire();
 	void ClearGuarderdRects();
 	void ClearPatrolMode();
@@ -188,11 +120,43 @@ public:
 	void DoGuardRect();
 	void DoGuardUnit();
 	void DoPatrolOnly();
-	void SetAttackType(enum map_id);	// Use in combination with DoAttackEnemy()
+	void SetAttackType(map_id);	// Use in combination with DoAttackEnemy()
 	void SetCombineFire();
 	void SetFollowMode(int);
-	void SetPatrolMode(struct PatrolRoute &waypts);
-	void SetRect(struct MAP_RECT &);
-	void SetTargetGroup(class ScGroup); // Use in combination with DoGuardGroup()
-	void SetTargetUnit(class Unit);
+	void SetPatrolMode(PatrolRoute &waypts);
+	void SetRect(MAP_RECT&);
+	void SetTargetGroup(ScGroup); // Use in combination with DoGuardGroup()
+	void SetTargetUnit(Unit);
 };
+
+
+// Note: The Pinwheel class seems to be used for controlling waves
+//		 of attacks.
+
+class OP2 Pinwheel : public ScStub
+{
+public:
+	Pinwheel();
+	~Pinwheel() {};
+	Pinwheel& operator = (const Pinwheel& pinwheel);
+
+	void SendWaveNow(int);
+	void SetAttackComp(int, int, MrRec*);
+	void SetAttackFraction(int attackFraction);
+	void SetContactDelay(int);
+	void SetGuardComp(int, int, MrRec*);
+	void SetNoRange(int, int);
+	void SetPoints(PWDef*);
+	void SetSapperComp(int, int, MrRec*);
+	void SetWavePeriod(int minTime, int maxTime);
+};
+
+
+// Group creation functions
+// ************************
+
+OP2 class MiningGroup __fastcall CreateMiningGroup(class _Player owner);
+OP2 class BuildingGroup __fastcall CreateBuildingGroup(class _Player owner);
+OP2 class FightGroup __fastcall CreateFightGroup(class _Player owner);
+OP2 class Pinwheel __fastcall CreatePinwheel(class _Player &owner);
+

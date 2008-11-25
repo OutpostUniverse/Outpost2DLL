@@ -1,8 +1,7 @@
+#pragma once
 
-// Note: This file contains the defintion of the TethysGame class and 
-//		 GameMap class exported from Outpost2.exe. These two classes
-//		 control the map and overall game environment of the level.
-
+// Note: This file contains the defintion of the TethysGame class
+//		which controls the overall game environment
 
 // Forward declares
 enum map_id;
@@ -13,16 +12,8 @@ class _Player;
 
 // Note: The TethysGame class controls creation of units and disasters, 
 //		 sending custom in game messages to the player, playing recorded 
-//		 sounds for extra effects (you still have no control over the 
-//		 default sounds the game engine plays by itself), morale controls,
-//		 day and night controls, and more!
-//		 It also provides some useful information on the current game.
-//		 Basically anything related to the game as a whole is done through
-//		 this class.
-// Note: This class has all static member functions and no local variables.
-//		 Don't try to create an instance of this class. You don't need to 
-//		 create your own and you aren't meant to do it. Just use the 
-//		 class namespace for all your Outpost 2 level needs. =)
+//		 sounds, morale controls, and day and night controls.
+// Note: All members are static. Prefix class name and :: to access these functions.
 //		 Example: numberOfPlayers = TethysGame::NoPlayers();
 
 class OP2 TethysGame
@@ -96,7 +87,10 @@ public:
 	static void __fastcall SetMicrobeSpreadSpeed(int spreadSpeed);
 
 	// EMP Missile
-	//  Note: FindEMPMissileTarget searches aligned 8x8 blocks, for the block with the greatest weight. Target player military units weigh 64, non-target player military units weigh -32, and non-target player non-military units weigh 1.
+	//  Note: FindEMPMissileTarget searches aligned 8x8 blocks, for the block with the greatest weight
+	//  Note: The target location is at the block center (+3, +3)
+	//  Note: Targets first found block of heighest (non-negative) weight, or the first block if all blocks have negative weight
+	//  Note: Target player military units weigh 64, non-target player military units weigh -32, and non-target player non-military units weigh 1.
 	static LOCATION __fastcall FindEMPMissleTarget(int startTileX, int startTileY, int endTileX, int endTileY, int destPlayerNum);
 	static void __fastcall SetEMPMissile(int launchTileX, int launchTileY, int setToZero, int destTileX, int destTileY);	// Set third param to 0
 
@@ -110,28 +104,3 @@ public:
 private:
 	static void __fastcall sIssueOptPacket(int variableId, int newValue);
 };
-
-
-
-// Note: This class is used to control the displayed tiles on the map as well
-//		 as the movement/passability characteristics of the terrain.
-// Note: This class has all static member functions and no local variables.
-//		 Don't try to create an instance of this class. You don't need to 
-//		 create your own and you aren't meant to do it. Just use the 
-//		 class namespace for all your Outpost 2 level needs. =)
-//		 Example: GameMap::SetInitialLightLevel(0);
-
-class OP2 GameMap
-{
-public:
-	GameMap& operator = (const GameMap& gameMap);
-	static int __fastcall GetCellType(LOCATION location);
-	static int __fastcall GetTile(LOCATION location);
-	static void __fastcall InitialSetTile(LOCATION location, int tileIndex);
-	static void __fastcall SetTile(LOCATION location, int tileIndex);
-	static void __fastcall SetCellType(LOCATION location, int cellIndex);
-	static void __fastcall SetLavaPossible(LOCATION location, int bLavaPossible);
-	static void __fastcall SetVirusUL(LOCATION location, int spreadSpeed);
-	static void __fastcall SetInitialLightLevel(int lightPosition);
-};
-
