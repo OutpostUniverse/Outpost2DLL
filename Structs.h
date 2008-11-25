@@ -98,11 +98,11 @@ struct OP2 PWDef
 #pragma pack(push, 1)
 struct OP2 CommandPacket 
 {
-	int type;				// Type of command - see secret list :)
-	short dataLength;		// Length of dataBuff
-	int timeStamp;			// Game Tick (only seems to be used for network traffic)
-	int unknown;			// **TODO** figure this out (only used for network traffic?)
-	char dataBuff[0x66];	// Dependent on message type
+	int type;				// 0x00 Type of command - see secret list :)
+	short dataLength;		// 0x04 Length of dataBuff
+	int timeStamp;			// 0x06 Game Tick (only seems to be used for network traffic)
+	int unknown;			// 0x0A **TODO** figure this out (only used for network traffic?)
+	char dataBuff[0x66];	// 0x0E Dependent on message type
 };
 #pragma pack(pop)
 */

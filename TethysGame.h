@@ -4,7 +4,12 @@
 //		 control the map and overall game environment of the level.
 
 
-
+// Forward declares
+enum map_id;
+enum SongIds;
+struct LOCATION;
+class Unit;
+class _Player;
 
 // Note: The TethysGame class controls creation of units and disasters, 
 //		 sending custom in game messages to the player, playing recorded 
@@ -23,7 +28,7 @@
 class OP2 TethysGame
 {
 public:
-	class TethysGame & operator = (class TethysGame const &);
+	TethysGame& operator = (const TethysGame& tethysGame);
 
 	// Player Number and Number of Players
 	static int __fastcall LocalPlayer();			// Returns the local player index
@@ -34,19 +39,19 @@ public:
 	static int __fastcall UsesMorale();
 	static int __fastcall CanHaveDisasters();
 	static int __fastcall InitialUnits();		// Number of Laser/Microwave Lynx to start with
-	static int __fastcall CanAllowCheats();
+	static int __fastcall CanAllowCheats();		// Useless
 
 	// Game Time
 	static int __fastcall Tick();	// Current time (tick is the smallest slice of game time)
 	static int __fastcall Time();	// Current tick / 4  (most processing is only done every 4 ticks)
 
 	// Game Sounds and Voice warnings
-	// Note: Recorded voice messages can be played by specifying the right soundIndex
-	static void __fastcall AddGameSound(int soundIndex, int toPlayerNum);
-	static void __fastcall AddMapSound(int soundIndex, struct LOCATION location);
+	//  Note: SoundIndex = 94..227 [Inclusive] are recorded voice messages
+	static void __fastcall AddGameSound(int soundIndex, int toPlayerNum);			// Note: toPlayerNum: -1 = PlayerAll
+	static void __fastcall AddMapSound(int soundIndex, LOCATION location);
 	// Message log
-	static void __fastcall AddMessage(int pixelX, int pixelY, char *message, int toPlayerNum, int soundIndex);
-	static void __fastcall AddMessage(class Unit owner, char *message, int toPlayerNum, int soundIndex);
+	static void __fastcall AddMessage(int pixelX, int pixelY, char *message, int toPlayerNum, int soundIndex);	// Note: toPlayerNum: -1 = PlayerAll
+	static void __fastcall AddMessage(Unit owner, char *message, int toPlayerNum, int soundIndex);				// Note: toPlayerNum: -1 = PlayerAll
 
 	// Debug/Cheat flags
 	static void __fastcall SetDaylightEverywhere(int boolOn);
@@ -57,15 +62,18 @@ public:
 	static void __fastcall SetCheatProduceAll(int boolOn);				// Useless
 	static void __fastcall SetCheatUnlimitedResources(int boolOn);		// Useless
 
-	// Unit Creation
-	static int __fastcall CreateUnit(class Unit &returnedUnit, enum map_id unitType, struct LOCATION location, int playerNum, enum map_id weaponCargoType, int rotation);
-	static int __fastcall CreateBeacon(enum map_id beaconType, int x, int y, int commonRareType, int barYield, int barVariant);
-	static int __fastcall CreateWreck(int tileX, int tileY, enum map_id techID, int bInitiallyVisible);			// Note: techID must be >= 8000 but < (8000+4096)
-	static int __fastcall PlaceMarker(class Unit &junk, int x, int y, int markerType);
-	static int __fastcall CreateWallOrTube(int tileX, int tileY, int unused, enum map_id wallTubeType);
-	static int __fastcall CreateUnitBlock(class _Player& ownerPlayer, char const *exportName, int bLightsOn);	// Returns numUnitsCreated
+	// Unit Creation  [Returns: int numUnitsCreated]
+	static int __fastcall CreateUnit(Unit& returnedUnit, map_id unitType, LOCATION location, int playerNum, map_id weaponCargoType, int rotation);	// Note: see enum UnitDirection
+	static int __fastcall CreateBeacon(map_id beaconType, int tileX, int tileY, int commonRareType, int barYield, int barVariant);	// Note: see enums BeacondTypes, Yield, Variant
+	static int __fastcall CreateWreck(int tileX, int tileY, map_id techID, int bInitiallyVisible);		// Note: techID must be >= 8000 but < (8000+4096) = 12096
+	static int __fastcall PlaceMarker(Unit& returnedUnit, int tileX, int tileY, int markerType);		// Note: See enum MarkerTypes
+	static int __fastcall CreateWallOrTube(int tileX, int tileY, int unused, map_id wallTubeType);		// Returns: 1 [true] always
+	static int __fastcall CreateUnitBlock(_Player& ownerPlayer, const char* exportName, int bLightsOn);	// Returns: numUnitsCreated,  Note: see class UnitBlock
 
 	// Morale Level
+	//  Note: playerNum: -1 = PlayerAll
+	//  Note: Calling ForceMoraleX functions after tick 0 will cause a "Cheated Game!" message to appear. FreeMoraleLevel can be called any time.
+	//  Bug: ForceMoraleX is buggy if playerNum is not -1. You may need to call the function twice for the correct effect (see Forum post). FreeMoraleLevel is not affected by this bug.
 	static void __fastcall ForceMoraleGreat(int playerNum);		
 	static void __fastcall ForceMoraleGood(int playerNum);		
 	static void __fastcall ForceMoraleOK(int playerNum);		
@@ -75,7 +83,7 @@ public:
 
 	// Random number generation
 	static void __fastcall SetSeed(unsigned int randNumSeed);	// Set random number seed
-	static int __fastcall GetRand(int range);		// Returns a number from 0 to (range-1)
+	static int __fastcall GetRand(int range);					// Returns a number from 0..(range-1)
 
 	// Disaster Creation
 	static void __fastcall SetMeteor(int tileX, int tileY, int size);
@@ -88,15 +96,16 @@ public:
 	static void __fastcall SetMicrobeSpreadSpeed(int spreadSpeed);
 
 	// EMP Missile
-	static struct LOCATION  __fastcall FindEMPMissleTarget(int, int, int, int, int);
+	//  Note: FindEMPMissileTarget searches aligned 8x8 blocks, for the block with the greatest weight. Target player military units weigh 64, non-target player military units weigh -32, and non-target player non-military units weigh 1.
+	static LOCATION __fastcall FindEMPMissleTarget(int startTileX, int startTileY, int endTileX, int endTileY, int destPlayerNum);
 	static void __fastcall SetEMPMissile(int launchTileX, int launchTileY, int setToZero, int destTileX, int destTileY);	// Set third param to 0
 
-	// Load/Save Games
-	static void __fastcall SaveGame(char const *);
-	static void __fastcall LoadGame(char const *);
+	// Save/Load Games
+	static void __fastcall SaveGame(const char* savedGameName);		// Note: Unimplemented  [Useless]
+	static void __fastcall LoadGame(const char* savedGameName);		// Note: Saved game names default to: "SGAME?.OP2" file name format
 
 	// Misc
-	static void __fastcall SetMusicPlayList(int numSongs, int repeatStartIndex, enum SongIds *songIdList);
+	static void __fastcall SetMusicPlayList(int numSongs, int repeatStartIndex, SongIds* songIdList);
 
 private:
 	static void __fastcall sIssueOptPacket(int variableId, int newValue);
@@ -115,14 +124,14 @@ private:
 class OP2 GameMap
 {
 public:
-	class GameMap & operator=(class GameMap const &);
-	static int __fastcall GetCellType(struct LOCATION location);
-	static int __fastcall GetTile(struct LOCATION location);
-	static void __fastcall InitialSetTile(struct LOCATION where, int what);
-	static void __fastcall SetCellType(struct LOCATION where, int what);
+	GameMap& operator = (const GameMap& gameMap);
+	static int __fastcall GetCellType(LOCATION location);
+	static int __fastcall GetTile(LOCATION location);
+	static void __fastcall InitialSetTile(LOCATION location, int tileIndex);
+	static void __fastcall SetTile(LOCATION location, int tileIndex);
+	static void __fastcall SetCellType(LOCATION location, int cellIndex);
+	static void __fastcall SetLavaPossible(LOCATION location, int bLavaPossible);
+	static void __fastcall SetVirusUL(LOCATION location, int spreadSpeed);
 	static void __fastcall SetInitialLightLevel(int lightPosition);
-	static void __fastcall SetLavaPossible(struct LOCATION where, int boolLavaPossible);
-	static void __fastcall SetTile(struct LOCATION where, int what);
-	static void __fastcall SetVirusUL(struct LOCATION where, int);
 };
 
