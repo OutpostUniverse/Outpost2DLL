@@ -26,41 +26,55 @@ public:
 	Unit& operator = (const Unit& unit);
 	int operator == (const Unit& unit) const;
 
-	void ClearSpecialTarget();
-	void DoAttack(Unit);
-	void DoBuild(map_id buildingType, LOCATION location);
-	void DoDeath();
-	void DoDevelop(map_id);
-	void DoIdle();
-	void DoInfect();
-	void DoLaunch(int, int, int);
-	void DoMove(LOCATION location);
-	void DoSelfDestruct();
-	void DoSetLights(int boolOn);
-	void DoStop();
-	void DoTransfer(int playerNum);
-	void DoUnIdle();
-	map_id GetCargo() const;
-	map_id GetObjectOnPad() const;
+	// Common
+	// [Get]
 	map_id GetType() const;
-	map_id GetWeapon() const;
-	int HasOccupiedBay() const;
+	int OwnerID() const;
 	int IsBuilding() const;
+	int IsVehicle() const;
 	int IsBusy() const;
 	int IsLive();
-	int IsVehicle() const;
-	LOCATION Location() const;
-	int OwnerID() const;
-	void PutInGarage(int bay, int tileX, int tileY);
-	void SetCargo(map_id cargoType, map_id weaponType);
-	void SetDamage(int damage);
-	void SetFactoryCargo(int bay, map_id unitType, map_id cargoOrWeaponType);
-	void SetId(int newUnitId);
-	void SetOppFiredUpon(int);
-	void SetTruckCargo(Truck_Cargo cargoType, int amount);
-	void SetWeapon(map_id weaponType);
-	int isDiscovered() const;		// Checks if a Wreckage unit has been discovered
 	int isEMPed() const;
+	LOCATION Location() const;
+	// [Set]
+	void SetDamage(int damage);
+	void SetId(int newUnitId);													// Change referenced unit of this Proxy/Stub
+	void SetOppFiredUpon(int bTrue);											// Set if Unit is auto targetted
+	// [Method]
+	void DoDeath();
+	void DoSelfDestruct();														// Order Unit to SelfDestruct
+	void DoTransfer(int destPlayerNum);											// Order Unit to Transfer to another Player (Vehicle or Building)
+
+	// Combat Units
+	map_id GetWeapon() const;
+	void SetWeapon(map_id weaponType);
+	void DoAttack(Unit targetUnit);												// Order Unit to Attack target Unit
+
+	// Vehicles
+	void DoSetLights(int boolOn);												// Order Unit to SetLights
+	void DoMove(LOCATION location);												// Order Unit to Move
+	// Specific Vehicle
+	map_id GetCargo() const;													// [Convec]
+	void DoBuild(map_id buildingType, LOCATION location);						// [Convec]
+	void SetCargo(map_id cargoType, map_id weaponType);							// [Convec]
+	void SetTruckCargo(Truck_Cargo cargoType, int amount);						// [Cargo Truck]
+
+	// Buildings
+	void DoIdle();
+	void DoUnIdle();
+	void DoStop();
+	void DoInfect();
+	// Specific Building
+	map_id GetObjectOnPad() const;												// [Spaceport]
+	void DoLaunch(int destPixelX, int destPixelY, int bForceEnable);			// [Spaceport]
+	void PutInGarage(int bayIndex, int tileX, int tileY);						// [Garage]
+	int HasOccupiedBay() const;													// [Garage, StructureFactory, Spaceport]
+	void SetFactoryCargo(int bay, map_id unitType, map_id cargoOrWeaponType);	// [StructureFactory, Spaceport]  [Note: If items is an SULV, RLV, or EMP Missile, it is placed on the launch pad instead of in the bay]
+	void DoDevelop(map_id itemToProduce);										// [Factory]  [Note: Sets weapon/cargo to mapNone, can't build Lynx/Panther/Tiger/GuardPostKits]
+	void ClearSpecialTarget();													// [Lab]
+
+	// Wreckage
+	int isDiscovered() const;													// Wreckage
 
 protected:
 	void DoSimpleCommand(int commandPacketType);
