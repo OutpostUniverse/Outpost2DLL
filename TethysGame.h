@@ -48,13 +48,13 @@ public:
 	static void __fastcall AddMessage(Unit owner, char *message, int toPlayerNum, int soundIndex);				// Note: toPlayerNum: -1 = PlayerAll
 
 	// Debug/Cheat flags
-	static void __fastcall SetDaylightEverywhere(int boolOn);
-	static void __fastcall SetDaylightMoves(int boolOn);
+	static void __fastcall SetDaylightEverywhere(int bOn);
+	static void __fastcall SetDaylightMoves(int bOn);
 	// Cheat flags  [gutted and useless by official Sierra update]
-	static void __fastcall SetCheatFastProduction(int boolOn);			// Useless
-	static void __fastcall SetCheatFastUnits(int boolOn);				// Useless
-	static void __fastcall SetCheatProduceAll(int boolOn);				// Useless
-	static void __fastcall SetCheatUnlimitedResources(int boolOn);		// Useless
+	static void __fastcall SetCheatFastProduction(int bOn);			// Useless
+	static void __fastcall SetCheatFastUnits(int bOn);				// Useless
+	static void __fastcall SetCheatProduceAll(int bOn);				// Useless
+	static void __fastcall SetCheatUnlimitedResources(int bOn);		// Useless
 
 	// Unit Creation  [Returns: int numUnitsCreated]
 	static int __fastcall CreateUnit(Unit& returnedUnit, map_id unitType, LOCATION location, int playerNum, map_id weaponCargoType, int rotation);	// Note: see enum UnitDirection
