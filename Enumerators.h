@@ -1,12 +1,14 @@
 #pragma once
+#define OP2 __declspec(dllimport)
 
 // Note: This file is used to define the enumerator classes exported
 //		 from Outpost2.exe. These classes can be used to search for
 //		 or traverse a list of units one unit at a time.
 
 
-// Forward declares
-struct LOCATION;	// **
+// External type names
+enum map_id;
+struct LOCATION;
 struct MAP_RECT;
 class ScGroup;
 class Unit;

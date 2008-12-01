@@ -1,9 +1,12 @@
 #pragma once
+#define OP2 __declspec(dllimport)
 
 #include "ScStub.h"
 
-// Forward declares
+// External type names
 enum map_id;
+enum compare_mode;
+enum trig_res;
 class Unit;
 class ScGroup;
 

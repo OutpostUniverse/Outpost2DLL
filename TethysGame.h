@@ -1,9 +1,10 @@
 #pragma once
+#define OP2 __declspec(dllimport)
 
 // Note: This file contains the defintion of the TethysGame class
 //		which controls the overall game environment
 
-// Forward declares
+// External type names
 enum map_id;
 enum SongIds;
 struct LOCATION;

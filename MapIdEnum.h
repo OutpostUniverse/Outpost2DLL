@@ -1,3 +1,4 @@
+#pragma once
 
 // Note: This file contains the all important map_id enum.
 //		 This enum is used for almost all aspects of DLL 

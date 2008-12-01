@@ -1,3 +1,4 @@
+#pragma once
 
 // Note: This file is used for enums where the name of the enum is not
 //		 specified by exports from Outpost2.exe. The names of the enums

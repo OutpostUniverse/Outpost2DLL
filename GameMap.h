@@ -1,6 +1,8 @@
+#pragma once
+#define OP2 __declspec(dllimport)
 
 
-// Forward declares
+// External type names
 struct LOCATION;
 
 // Note: This class is used to control the displayed tiles on the map as well

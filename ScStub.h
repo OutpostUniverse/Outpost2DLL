@@ -1,4 +1,5 @@
 #pragma once
+#define OP2 __declspec(dllimport)
 
 // Note: ScStub is the parent class of Triggers, Groups, and Pinwheel classes.
 //		 All functions in this class are available to derived classes

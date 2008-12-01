@@ -1,4 +1,5 @@
 #pragma once
+#define OP2 __declspec(dllimport)
 
 // Note: This file is used to define all the group related classes exported
 //		 from Outpost2.exe. It also contains the Pinwheel class (which is
@@ -9,7 +10,7 @@
 #include "ScStub.h"
 
 
-// Forward declare
+// External type names
 enum map_id;
 enum UnitClassifactions;	// ** Typo **
 struct LOCATION;

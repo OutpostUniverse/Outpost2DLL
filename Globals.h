@@ -1,3 +1,9 @@
+#pragma once
+#define OP2 __declspec(dllimport)
+
+
+// External type names
+class _Player;
 
 
 // Output preparation function
@@ -14,7 +20,7 @@ OP2 int __cdecl scr_snprintf(char* writeBuffer, unsigned int bufferLength, const
 //		 (numbered 0-6) which can be used to manipulate all the players
 //		 in the level. See Player.h for details.
 
-OP2 class _Player Player[7];
+OP2 _Player Player[7];
 
 
 

@@ -1,7 +1,8 @@
 #pragma once
+#define OP2 __declspec(dllimport)
 
 
-// Forward declares
+// External type names
 struct UnitRecord;
 
 

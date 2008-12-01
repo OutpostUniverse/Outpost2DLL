@@ -1,3 +1,4 @@
+#pragma once
 
 
 // Note: This file stores all the enums exported from Outpost2.exe except for the

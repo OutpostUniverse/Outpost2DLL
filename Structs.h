@@ -1,7 +1,10 @@
+#pragma once
+#define OP2 __declspec(dllimport)
 
 
-enum UnitClassifications;
-
+// External type names
+enum map_id;
+enum UnitClassifactions;
 
 
 // Note: This file contains all the exported structures from Outpost2.exe.
@@ -17,7 +20,7 @@ enum UnitClassifications;
 struct OP2 LOCATION
 {
 public:
-	LOCATION(int tileX, int tileY)	{ this->x = tileX; this->y = tileY; };
+	LOCATION(int tileX, int tileY);	// { this->x = tileX; this->y = tileY; };
 	LOCATION();						// { this->x = 0; this->y = 0; };
 	LOCATION& operator = (const LOCATION& location);
 	void Add(const LOCATION& vector);
@@ -113,7 +116,7 @@ struct OP2 UnitRecord
 	int unknown1;								// 0xC  ** [unused?]
 	int rotation;								// 0x10 ** [Byte?]
 	map_id weaponType;							// 0x14
-	UnitClassifications unitClassification;		// 0x18
+	UnitClassifactions unitClassification;		// 0x18
 	short cargoType;							// 0x1C
 	short cargoAmount;							// 0x1E
 };

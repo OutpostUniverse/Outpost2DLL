@@ -1,4 +1,5 @@
 #pragma once
+#define OP2 __declspec(dllimport)
 
 // Note: This file is used to define the Unit class. Use this class to 
 //		 manipulate all the units in the game.
@@ -6,7 +7,7 @@
 //		 classes used to find units and traverse lists of units, one unit
 //		 at a time. See Enumerator.h for details.
 
-// Forward declares
+// External type names
 enum map_id;
 enum Truck_Cargo;
 struct LOCATION;

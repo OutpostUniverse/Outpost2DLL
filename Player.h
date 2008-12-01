@@ -1,4 +1,5 @@
 #pragma once
+#define OP2 __declspec(dllimport)
 
 // Note: This file contains the _Player class definition exported from
 //		 Outpost2.exe. Use this class to modify anything associated
@@ -14,7 +15,7 @@
 //		 hardcoded into each DLL).
 
 
-// Forward declares
+// External type names
 enum map_id;
 struct MAP_RECT;
 class ScGroup;		// **
