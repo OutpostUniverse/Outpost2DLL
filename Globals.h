@@ -6,7 +6,7 @@
 //		 All it does is collect input into a single string which may then
 //		 be passed to a method such as TethysGame::AddMessage to actually
 //		 output the text.
-OP2 int __cdecl scr_snprintf(char *writeBuffer, unsigned int bufferLength, char const *formatString, ...);
+OP2 int __cdecl scr_snprintf(char* writeBuffer, unsigned int bufferLength, const char* formatString, ...);
 
 
 // Note: Here is the only exported variable from Outpost2.exe used for

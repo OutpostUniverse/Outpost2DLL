@@ -31,7 +31,7 @@
 #include "TethysGame.h"
 #include "GameMap.h"
 #include "NonExportedEnums.h"
-#include "Functions.h"
+#include "Globals.h"
 // Include the header file which contains definitions
 // of required exports from the level DLL
 #include "RequiredExports.h"

@@ -11,7 +11,7 @@
 
 // Forward declare
 enum map_id;
-enum UnitClassifactions;
+enum UnitClassifactions;	// ** Typo **
 struct LOCATION;
 struct MAP_RECT;
 struct MrRec;
@@ -19,6 +19,7 @@ struct PWDef;
 struct PatrolRoute;
 class UnitBlock;
 class Unit;
+class _Player;
 
 
 // Note: ScGroup is the main parent class of all other group classes.
@@ -38,18 +39,18 @@ public:
 
 	void AddUnits(UnitBlock& unitsToAdd);
 	void ClearTargCount();
-	int GetFirstOfType(Unit& returnedUnit, UnitClassifactions unitType);
+	int GetFirstOfType(Unit& returnedUnit, UnitClassifactions unitType);	// ** Typo **
 	int GetFirstOfType(Unit& returnedUnit, map_id unitType, map_id cargoOrWeapon);
 	int HasBeenAttacked();
 	void RemoveUnit(Unit unitToRemove);
-	void SetDeleteWhenEmpty(int boolDelete);
-	void SetLights(int boolOn);
+	void SetDeleteWhenEmpty(int bDelete);
+	void SetLights(int bOn);
 	void SetTargCount(UnitBlock& unitTypes);
 	void SetTargCount(map_id unitType, map_id weaponType, int targetCount);
-	void TakeAllUnits(ScGroup& groupToAdd);
+	void TakeAllUnits(ScGroup& sourceGroup);
 	void TakeUnit(Unit unitToAdd);
 	int TotalUnitCount();
-	int UnitCount(UnitClassifactions criteria);
+	int UnitCount(UnitClassifactions unitType);	// ** Typo **
 };
 
 
@@ -70,14 +71,14 @@ public:
 	BuildingGroup& operator = (const BuildingGroup& buildingGroup);
 
 	void RecordBuilding(LOCATION &buildingLocation, map_id unitType, map_id cargoOrWeapon);
-	void RecordBuilding(LOCATION &buildingLocation, map_id unitType, map_id cargoOrWeapon, ScGroup&);
+	void RecordBuilding(LOCATION &buildingLocation, map_id unitType, map_id cargoOrWeapon, ScGroup&);	// **
 	void RecordTube(LOCATION& tubeLocation);
 	void RecordTubesTouching(LOCATION &startLocation);
-	void RecordUnitBlock(UnitBlock&);
-	void RecordUnitBlock(UnitBlock&, ScGroup&);
+	void RecordUnitBlock(UnitBlock& unitBlock);
+	void RecordUnitBlock(UnitBlock& unitBlock, ScGroup&);	// **
 	void RecordVehReinforceGroup(ScGroup& targetGroup, int priority); // 0 = lowest priority, 0xFFFF = highest
-	void RecordWall(LOCATION& location, map_id);
-	void SetRect(MAP_RECT &defaultLocation);
+	void RecordWall(LOCATION& location, map_id wallType);
+	void SetRect(MAP_RECT& defaultLocation);
 	void UnRecordVehGroup(ScGroup& group);
 };
 
@@ -92,8 +93,8 @@ public:
 	~MiningGroup() {};
 	MiningGroup& operator = (const MiningGroup& miningGroup);
 
-	void Setup(LOCATION& mine, LOCATION& smelter, MAP_RECT&);
-	void Setup(LOCATION& mine, LOCATION& smelter, map_id mineType, map_id smelterType, MAP_RECT &);
+	void Setup(LOCATION& mine, LOCATION& smelter, MAP_RECT& smelterArea);
+	void Setup(LOCATION& mine, LOCATION& smelter, map_id mineType, map_id smelterType, MAP_RECT &smelterArea);
 	void Setup(Unit mine, Unit smelter, MAP_RECT& smelterArea);
 };
 
@@ -109,7 +110,7 @@ public:
 	~FightGroup() {};
 	FightGroup& operator = (const FightGroup& fightGroup);
 
-	void AddGuardedRect(MAP_RECT&);
+	void AddGuardedRect(MAP_RECT& guardedRect);
 	void ClearCombineFire();
 	void ClearGuarderdRects();
 	void ClearPatrolMode();
@@ -120,13 +121,13 @@ public:
 	void DoGuardRect();
 	void DoGuardUnit();
 	void DoPatrolOnly();
-	void SetAttackType(map_id);	// Use in combination with DoAttackEnemy()
+	void SetAttackType(map_id);					// ** Use in combination with DoAttackEnemy()
 	void SetCombineFire();
-	void SetFollowMode(int);
+	void SetFollowMode(int);					// **
 	void SetPatrolMode(PatrolRoute &waypts);
-	void SetRect(MAP_RECT&);
-	void SetTargetGroup(ScGroup); // Use in combination with DoGuardGroup()
-	void SetTargetUnit(Unit);
+	void SetRect(MAP_RECT& idleRect);
+	void SetTargetGroup(ScGroup targetGroup);	// Use in combination with DoGuardGroup()
+	void SetTargetUnit(Unit targetUnit);
 };
 
 
@@ -140,14 +141,14 @@ public:
 	~Pinwheel() {};
 	Pinwheel& operator = (const Pinwheel& pinwheel);
 
-	void SendWaveNow(int);
-	void SetAttackComp(int, int, MrRec*);
+	void SendWaveNow(int);						// **
+	void SetAttackComp(int, int, MrRec*);		// **
 	void SetAttackFraction(int attackFraction);
-	void SetContactDelay(int);
-	void SetGuardComp(int, int, MrRec*);
-	void SetNoRange(int, int);
-	void SetPoints(PWDef*);
-	void SetSapperComp(int, int, MrRec*);
+	void SetContactDelay(int);					// **
+	void SetGuardComp(int, int, MrRec*);		// **
+	void SetNoRange(int, int);					// **
+	void SetPoints(PWDef*);						// **
+	void SetSapperComp(int, int, MrRec*);		// **
 	void SetWavePeriod(int minTime, int maxTime);
 };
 
@@ -155,8 +156,8 @@ public:
 // Group creation functions
 // ************************
 
-OP2 class MiningGroup __fastcall CreateMiningGroup(class _Player owner);
-OP2 class BuildingGroup __fastcall CreateBuildingGroup(class _Player owner);
-OP2 class FightGroup __fastcall CreateFightGroup(class _Player owner);
-OP2 class Pinwheel __fastcall CreatePinwheel(class _Player &owner);
+OP2 MiningGroup __fastcall CreateMiningGroup(_Player owner);
+OP2 BuildingGroup __fastcall CreateBuildingGroup(_Player owner);
+OP2 FightGroup __fastcall CreateFightGroup(_Player owner);
+OP2 Pinwheel __fastcall CreatePinwheel(_Player& owner);
 

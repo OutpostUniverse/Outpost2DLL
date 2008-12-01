@@ -1,18 +1,43 @@
+#pragma once
 
 // Note: This file is used to define the enumerator classes exported
 //		 from Outpost2.exe. These classes can be used to search for
 //		 or traverse a list of units one unit at a time.
 
 
+// Forward declares
+struct LOCATION;	// **
+struct MAP_RECT;
+class ScGroup;
+class Unit;
+
+
+// Private UnitNode structure that should have no external access
+struct UnitNode
+{
+	UnitNode* prev;		// ** Maybe? (Guessed)
+	UnitNode* next;
+	Unit* unit;
+};
+
+
+// ------------------------------------------------------------------------
+// Note: All Enumerators implement a GetNext function, which returns
+//	0 if no Unit was found, or non-zero if a Unit was found.
+//	If a Unit was found, then it's index is returned in the Unit proxy/stub
+//	passed as the first parameter.
+// ------------------------------------------------------------------------
+
+
 // Group (enumerate all units in a group)
 class OP2 GroupEnumerator
 {
 public:
-	GroupEnumerator(class ScGroup &group);
-	class GroupEnumerator & operator = (class GroupEnumerator const &);
-	int GetNext(class Unit &currentUnit);
-private:
-	int unknown;
+	GroupEnumerator(ScGroup& group);
+	GroupEnumerator& operator = (const GroupEnumerator& groupEnum);
+	int GetNext(Unit& currentUnit);
+public:	// Why not? =)
+	UnitNode* currentUnitNode;
 };
 
 // Vehicles (enumerate all vehicles for a certain player)
@@ -20,10 +45,10 @@ class OP2 PlayerVehicleEnum
 {
 public:
 	PlayerVehicleEnum(int playerNum);
-	class PlayerVehicleEnum & operator = (class PlayerVehicleEnum const &);
-	int GetNext(class Unit &currentUnit);	// Returns 1 and fills in Unit.unitID or Returns 0 when done
-private:
-	int unknown;
+	PlayerVehicleEnum& operator = (const PlayerVehicleEnum& playerVehicleEnum);
+	int GetNext(Unit& currentUnit);
+public:	// Why not? =)
+	void* currentUnit;
 };
 
 // Buildings (enumerate all buildings of a certain type for a certain player)
@@ -31,10 +56,10 @@ class OP2 PlayerBuildingEnum
 {
 public:
 	PlayerBuildingEnum(int playerNum, map_id buildingType);
-	class PlayerBuildingEnum & operator = (class PlayerBuildingEnum const &);
-	int GetNext(class Unit &currentUnit);	// Returns 0 when done
-private:
-	int currentUnitPtr;		// Unit* currentUnit
+	PlayerBuildingEnum& operator = (const PlayerBuildingEnum& playerBuildingEnum);
+	int GetNext(class Unit &currentUnit);
+public:	// Why not? =)
+	void* currentUnit;
 	map_id buildingType;
 };
 
@@ -43,53 +68,53 @@ class OP2 PlayerUnitEnum
 {
 public:
 	PlayerUnitEnum(int playerNum);
-	class PlayerUnitEnum & operator = (class PlayerUnitEnum const &);
-	int GetNext(class Unit &currentUnit);	// Returns 0 when done
-private:
-	int unknown1, unknown2;
-};
-
-// Closest (enumerate all units ordered by their distance to a given location)
-class OP2 ClosestEnumerator
-{
-public:
-	ClosestEnumerator(struct LOCATION const &location);
-	class ClosestEnumerator & operator = (class ClosestEnumerator const &);
-	int GetNext(class Unit &currentUnit, unsigned long &pixelDistance);	
-private:
-	int unknown[13];
+	PlayerUnitEnum& operator = (const PlayerUnitEnum& playerUnitEnum);
+	int GetNext(Unit& currentUnit);
+public:	// Why not? =)
+	void* currentUnit;
+	int playerNum;
 };
 
 // InRange (enumerate all units within a given distance of a given location)
 class OP2 InRangeEnumerator
 {
 public:
-	InRangeEnumerator(struct LOCATION const &location, int distance);
-	class InRangeEnumerator & operator = (class InRangeEnumerator const &);
+	InRangeEnumerator(const LOCATION& centerPoint, int maxTileDistance);
+	InRangeEnumerator& operator = (const InRangeEnumerator& inRangeEnum);
 	int GetNext(class Unit &currentUnit);
 private:
-	int unknown[13];
+	int unknown[13];	// **TODO** Fill in details
 };
 
 // InRect (enumerate all units within a given rectangle)
 class OP2 InRectEnumerator
 {
 public:
-	InRectEnumerator(struct MAP_RECT const &rect);
-	class InRectEnumerator & operator = (class InRectEnumerator const &);
-	int GetNext(class Unit &currentUnit);
+	InRectEnumerator(const MAP_RECT& rect);
+	InRectEnumerator& operator = (const InRectEnumerator& inRectEnum);
+	int GetNext(Unit& currentUnit);
 private:
-	int unknown[13];
+	int unknown[13];	// **TODO** Fill in details
 };
 
 // Location (enumerate all units at a given location)
 class OP2 LocationEnumerator
 {
 public:
-	LocationEnumerator(struct LOCATION const &location);
-	class LocationEnumerator & operator = (class LocationEnumerator const &);
-	int GetNext(class Unit &currentUnit);
+	LocationEnumerator(const LOCATION& location);
+	LocationEnumerator& operator = (const LocationEnumerator& locationEnum);
+	int GetNext(Unit& currentUnit);
 private:
-	int unknown[13];
+	int unknown[13];	// **TODO** Fill in details
 };
 
+// Closest (enumerate all units ordered by their distance to a given location)
+class OP2 ClosestEnumerator
+{
+public:
+	ClosestEnumerator(const LOCATION& location);
+	ClosestEnumerator& operator = (const ClosestEnumerator& closestEnum);
+	int GetNext(Unit& currentUnit, unsigned long &pixelDistance);	
+private:
+	int unknown[13];	// **TODO** Fill in details
+};

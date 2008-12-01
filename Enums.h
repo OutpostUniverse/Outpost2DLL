@@ -64,7 +64,7 @@ enum MoraleLevels
 // Used by ScGroup.GetFirstOfType, ScGroup.UnitCount, and classes
 // derived from ScGroup which inherit these functions
 // (BuildingGroup, FightGroup, MiningGroup)
-enum UnitClassifications 
+enum UnitClassifactions			// [Note: **Typo** in name]
 {
 	clsAttack = 0,				// 0 (Lynx, Panther, Tiger, Scorpion)  [Not ESG, EMP, or Stickyfoam]
 	clsESG,						// 1 (Lynx, Panther, Tiger)
@@ -85,6 +85,7 @@ enum UnitClassifications
 	clsNotSet = 0x10,			// 10 
 	clsAll = 0x11,				// 11 All vehicles and buildings
 };
+typedef UnitClassifactions UnitClassifications;		// Typo fixing typedef
 // Note: clsAttack applies to all attack vehicles with the following weapons:
 //		Microwave
 //		Laser
