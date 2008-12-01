@@ -1,8 +1,7 @@
 #pragma once
 
-// Note: This file is used to define the Unit class and the UnitBlock class
-//		 exported from Outpost2.exe. Use these classes to manipulate all the
-//		 units in the game.
+// Note: This file is used to define the Unit class. Use this class to 
+//		 manipulate all the units in the game.
 // Note: The Unit class is also used in conjunction with the enumerator
 //		 classes used to find units and traverse lists of units, one unit
 //		 at a time. See Enumerator.h for details.
@@ -14,7 +13,7 @@ struct LOCATION;
 struct CommandPacket;
 
 
-// Note: This class controls units and provides info on them. This class can
+// Note: This class controls Units and provides info on them. This class can
 //		 be used to set cargo in ConVecs, Cargo Trucks, or factory bays.
 //		 It can also be used to move units around the map and perform simple
 //		 operations such as self destruct and headlight control.

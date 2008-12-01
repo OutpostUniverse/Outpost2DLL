@@ -61,7 +61,7 @@ public:
 struct OP2 PatrolRoute 
 {
 	int unknown1;
-	LOCATION *waypoints;
+	LOCATION* waypoints;
 };
 
 struct OP2 MrRec 
