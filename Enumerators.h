@@ -1,5 +1,7 @@
 #pragma once
+#ifndef OP2
 #define OP2 __declspec(dllimport)
+#endif
 
 // Note: This file is used to define the enumerator classes exported
 //		 from Outpost2.exe. These classes can be used to search for

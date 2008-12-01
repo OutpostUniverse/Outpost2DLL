@@ -1,5 +1,7 @@
 #pragma once
+#ifndef OP2
 #define OP2 __declspec(dllimport)
+#endif
 
 // Note: This file is used to define all the group related classes exported
 //		 from Outpost2.exe. It also contains the Pinwheel class (which is
@@ -35,7 +37,7 @@ class OP2 ScGroup : public ScStub
 {
 public:
 	ScGroup();
-	~ScGroup() {};
+	~ScGroup();
 	ScGroup& operator = (const ScGroup& scGroup);
 
 	void AddUnits(UnitBlock& unitsToAdd);
@@ -68,7 +70,7 @@ class OP2 BuildingGroup : public ScGroup
 {
 public:
 	BuildingGroup();
-	~BuildingGroup() {};
+	~BuildingGroup();
 	BuildingGroup& operator = (const BuildingGroup& buildingGroup);
 
 	void RecordBuilding(LOCATION &buildingLocation, map_id unitType, map_id cargoOrWeapon);
@@ -91,7 +93,7 @@ class OP2 MiningGroup : public ScGroup
 {
 public:
 	MiningGroup();
-	~MiningGroup() {};
+	~MiningGroup();
 	MiningGroup& operator = (const MiningGroup& miningGroup);
 
 	void Setup(LOCATION& mine, LOCATION& smelter, MAP_RECT& smelterArea);
@@ -108,7 +110,7 @@ class OP2 FightGroup : public ScGroup
 {
 public:
 	FightGroup();
-	~FightGroup() {};
+	~FightGroup();
 	FightGroup& operator = (const FightGroup& fightGroup);
 
 	void AddGuardedRect(MAP_RECT& guardedRect);
@@ -139,7 +141,7 @@ class OP2 Pinwheel : public ScStub
 {
 public:
 	Pinwheel();
-	~Pinwheel() {};
+	~Pinwheel();
 	Pinwheel& operator = (const Pinwheel& pinwheel);
 
 	void SendWaveNow(int);						// **

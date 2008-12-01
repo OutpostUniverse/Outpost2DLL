@@ -1,5 +1,7 @@
 #pragma once
+#ifndef OP2
 #define OP2 __declspec(dllimport)
+#endif
 
 // Note: This file contains the _Player class definition exported from
 //		 Outpost2.exe. Use this class to modify anything associated

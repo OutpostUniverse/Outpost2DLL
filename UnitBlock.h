@@ -1,5 +1,7 @@
 #pragma once
+#ifndef OP2
 #define OP2 __declspec(dllimport)
+#endif
 
 
 // External type names

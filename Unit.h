@@ -1,5 +1,7 @@
 #pragma once
+#ifndef OP2
 #define OP2 __declspec(dllimport)
+#endif
 
 // Note: This file is used to define the Unit class. Use this class to 
 //		 manipulate all the units in the game.
@@ -22,7 +24,7 @@ struct CommandPacket;
 class OP2 Unit
 {
 public:
-	Unit() { unitID = 0; };
+	Unit();	// { unitID = 0; };
 	Unit& operator = (const Unit& unit);
 	int operator == (const Unit& unit) const;
 

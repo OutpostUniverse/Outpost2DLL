@@ -1,5 +1,7 @@
 #pragma once
+#ifndef OP2
 #define OP2 __declspec(dllimport)
+#endif
 
 #include "ScStub.h"
 
@@ -21,7 +23,7 @@ class OP2 Trigger : public ScStub
 {
 public:
 	Trigger();
-	~Trigger() {};
+	~Trigger();	// {};
 	Trigger& operator = (const Trigger& trigger);
 
 	void Disable();
