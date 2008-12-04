@@ -96,7 +96,7 @@ struct OP2 PWDef
 // Note: The compiler must be told to pack this structure since the 
 //		 short dataLength would otherwise have 2 padding bytes after
 //		 it which would mess up the rest of the structure.
-/*
+
 #pragma pack(push, 1)
 struct OP2 CommandPacket 
 {
@@ -107,7 +107,7 @@ struct OP2 CommandPacket
 	char dataBuff[0x66];	// 0x0E Dependent on message type
 };
 #pragma pack(pop)
-*/
+
 
 // Size: 0x20  [0x20 = 32, or 8 dwords]  [Note: last 2 fields are shorts]
 struct OP2 UnitRecord 
