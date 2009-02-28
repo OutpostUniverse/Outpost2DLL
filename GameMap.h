@@ -24,7 +24,7 @@ public:
 	static void __fastcall SetTile(LOCATION location, int tileIndex);
 	static void __fastcall SetCellType(LOCATION location, int cellIndex);
 	static void __fastcall SetLavaPossible(LOCATION location, int bLavaPossible);
-	static void __fastcall SetVirusUL(LOCATION location, int spreadSpeed);
+	static void __fastcall SetVirusUL(LOCATION location, int bBlightPresent);
 	static void __fastcall SetInitialLightLevel(int lightPosition);
 };
 
