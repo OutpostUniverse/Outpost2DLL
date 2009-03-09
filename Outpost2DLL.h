@@ -1,5 +1,11 @@
 #pragma once
 
+// Add reference to the import library
+#pragma comment(lib, "../../API/Outpost2DLL/Lib/Outpost2DLL")
+// Replace the C-RunTime (CRT) with a customized smaller one
+#pragma comment(lib, "../../API/Outpost2DLL/Lib/LibCTiny")
+#pragma comment(linker, "/nodefaultlib:libcmt.lib")
+
 
 // Note: This is the main DLL SDK include file. Including this file
 //		 will in turn include every other header file which defines
