@@ -66,7 +66,7 @@ public:
 struct OP2 PatrolRoute 
 {
 	int unknown1;
-	LOCATION* waypoints;
+	LOCATION* waypoints;	// Max waypoints = 8, set Location.x = -1 for last waypoint in list if list is short
 };
 
 struct OP2 MrRec 
