@@ -87,7 +87,7 @@ enum UnitDirection
 	South		= 2,
 	SouthWest	= 3,
 	West		= 4,
-	NothWest	= 5,
+	NorthWest	= 5,
 	North		= 6,
 	NorthEast	= 7,
 };
