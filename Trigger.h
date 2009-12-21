@@ -43,7 +43,7 @@ OP2 Trigger __fastcall CreateFailureCondition(int bEnabled, int bOneShot /*not u
 OP2 Trigger __fastcall CreateOnePlayerLeftTrigger(int bEnabled, int bOneShot, const char* triggerFunction);			// Last One Standing (and later part of Land Rush)
 OP2 Trigger __fastcall CreateEvacTrigger(int bEnabled, int bOneShot, int playerNum, const char* triggerFunction);	// Spacerace
 OP2 Trigger __fastcall CreateMidasTrigger(int bEnabled, int bOneShot, int time, const char* triggerFunction);		// Midas
-OP2 Trigger __fastcall CreateOperationalTrigger(int bEnabled, int bOneShot, int playerNum, map_id buildingType, int refValue, compare_mode compareType, const char* triggerFunction);	// Converting Land Rush to Last One Standing (when CC becomes active)
+OP2 Trigger __fastcall CreateOperationalTrigger(int bEnabled, int bOneShot, int playerNum, map_id buildingType, int refValue, compare_mode compareType, const char* triggerFunction);	// Converting Land Rush to Last One Standing (when CC becomes active). Do not use PlayerAll.
 // Research and Resource Count Triggers  [Note: Typically used to set what needs to be done by the end of a campaign mission]
 OP2 Trigger __fastcall CreateResearchTrigger(int bEnabled, int bOneShot, int techID, int playerNum, const char* triggerFunction);
 OP2 Trigger __fastcall CreateResourceTrigger(int bEnabled, int bOneShot, trig_res resourceType, int refAmount, int playerNum, compare_mode compareType, const char* triggerFunction);
