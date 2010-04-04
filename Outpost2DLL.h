@@ -2,9 +2,14 @@
 
 // Add reference to the import library
 #pragma comment(lib, "../../API/Outpost2DLL/Lib/Outpost2DLL")
-// Replace the C-RunTime (CRT) with a customized smaller one
-#pragma comment(lib, "../../API/Outpost2DLL/Lib/LibCTiny")
-#pragma comment(linker, "/nodefaultlib:libcmt.lib")
+
+// Use smaller runtime if MSVC 6.0 is being used
+// Note: Later compilers have issues with this.
+#if _MSC_VER == 1200
+	// Replace the C-RunTime (CRT) with a customized smaller one
+	#pragma comment(lib, "../../API/Outpost2DLL/Lib/LibCTiny")
+	#pragma comment(linker, "/nodefaultlib:libcmt.lib")
+#endif
 
 
 // Note: This is the main DLL SDK include file. Including this file

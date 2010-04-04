@@ -46,7 +46,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo
+# ADD LIB32 /nologo /out:"Lib\Outpost2DLL.lib"
 # Begin Target
 
 # Name "Outpost2DLL - Win32 Release"
