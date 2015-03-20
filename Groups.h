@@ -124,9 +124,9 @@ public:
 	void DoGuardRect();
 	void DoGuardUnit();
 	void DoPatrolOnly();
-	void SetAttackType(map_id);					// ** Use in combination with DoAttackEnemy()
+	void SetAttackType(map_id attackType);		// ** Use in combination with DoAttackEnemy()
 	void SetCombineFire();
-	void SetFollowMode(int);					// **
+	void SetFollowMode(int followMode);			// **
 	void SetPatrolMode(PatrolRoute &waypts);
 	void SetRect(MAP_RECT& idleRect);
 	void SetTargetGroup(ScGroup targetGroup);	// Use in combination with DoGuardGroup()
