@@ -28,6 +28,6 @@ public:
 	// [Set]
 	void SetId(int stubIndex);
 
-private:
+public:	// Why not? ;)
 	int stubIndex;
 };
