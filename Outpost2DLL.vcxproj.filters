@@ -7,6 +7,9 @@
     <Filter Include="Sub Headers">
       <UniqueIdentifier>{7995618c-701d-4ba9-a766-0b73bb38ce7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lib">
+      <UniqueIdentifier>{01ab2f8c-dde7-49b4-8158-80d234528dc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Outpost2DLL.h">
@@ -57,5 +60,10 @@
     <ClInclude Include="UnitBlock.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Lib\Outpost2DLL.lib">
+      <Filter>Lib</Filter>
+    </Library>
   </ItemGroup>
 </Project>

@@ -28,6 +28,9 @@
     <ClInclude Include="Unit.h" />
     <ClInclude Include="UnitBlock.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="Lib\Outpost2DLL.lib" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
