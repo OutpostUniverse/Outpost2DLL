@@ -61,6 +61,14 @@ struct BufferDesc
 	int length;			// length of this buffer
 };
 
+// Generate function to return global variable struct to Outpost2.exe for game save/load
+#define ExportSaveLoadData(globalVarStructName) \
+	Export void __cdecl GetSaveRegions(BufferDesc& bufferDesc) \
+	{ \
+		bufferDesc.bufferStart = &globalVarStructName; \
+		bufferDesc.length = sizeof(globalVarStructName); \
+	} \
+
 
 // ** Deprecated **
 // ****************
