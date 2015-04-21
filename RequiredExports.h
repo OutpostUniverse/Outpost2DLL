@@ -55,6 +55,8 @@ struct AIModDesc
 // This struct defined a memory region to be Saved/Loaded to/from saved game files. 
 // Note: See GetSaveRegions exported function
 // Note: This implies all level data must be statically declared. Avoid using "new".
+// Note: Setting bufferStart to 0 means no data (include buffer size) is present in the saved game file
+// Note: Setting bufferStart to non-zero and length to 0 means the size (4 bytes) is written to the saved game file.
 struct BufferDesc
 {
 	void *bufferStart;	// pointer to beginning of DLL data buffer
