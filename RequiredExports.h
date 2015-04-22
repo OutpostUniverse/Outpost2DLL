@@ -69,7 +69,14 @@ struct BufferDesc
 	{ \
 		bufferDesc.bufferStart = &globalVarStructName; \
 		bufferDesc.length = sizeof(globalVarStructName); \
-	} \
+	}
+// Generate function to return a lack of global variables for game save/load
+#define ExportSaveLoadDataNone() \
+	Export void __cdecl GetSaveRegions(BufferDesc& bufferDesc) \
+	{ \
+		bufferDesc.bufferStart = 0; \
+		bufferDesc.length = 0; \
+	}
 
 
 // ** Deprecated **
