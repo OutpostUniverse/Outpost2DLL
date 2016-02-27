@@ -58,7 +58,7 @@ public:
 
 	// Unit Creation  [Returns: int numUnitsCreated]
 	static int __fastcall CreateUnit(Unit& returnedUnit, map_id unitType, LOCATION location, int playerNum, map_id weaponCargoType, int rotation);	// Note: see enum UnitDirection
-	static int __fastcall CreateBeacon(map_id beaconType, int tileX, int tileY, int commonRareType, int barYield, int barVariant);	// Note: see enums BeacondTypes, Yield, Variant
+	static int __fastcall CreateBeacon(map_id beaconType, int tileX, int tileY, int commonRareType, int barYield, int barVariant);	// Note: see enums BeaconTypes, Yield, Variant
 	static int __fastcall CreateWreck(int tileX, int tileY, map_id techID, int bInitiallyVisible);		// Note: techID must be >= 8000 but < (8000+4096) = 12096
 	static int __fastcall PlaceMarker(Unit& returnedUnit, int tileX, int tileY, int markerType);		// Note: See enum MarkerTypes
 	static int __fastcall CreateWallOrTube(int tileX, int tileY, int unused, map_id wallTubeType);		// Returns: 1 [true] always
