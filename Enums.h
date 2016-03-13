@@ -98,7 +98,7 @@ typedef UnitClassifactions UnitClassifications;		// Typo fixing typedef
 //		Thor's Hammer
 //		Energy Cannon (Scorpions)
 // Note: Scorpions always appear in this classification (clsAttack), even
-//		 if the weapon is changes to ESG, EMP, Stickyfoam
+//		 if the weapon is changed to ESG, EMP, Stickyfoam
 
 
 
