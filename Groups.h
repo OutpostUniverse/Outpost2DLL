@@ -123,7 +123,7 @@ public:
 	void DoGuardGroup();
 	void DoGuardRect();
 	void DoGuardUnit();
-	void DoPatrolOnly();
+	void DoPatrolOnly();                        //FightGroup units will no longer chase units that get close, but will still fire at enemies in sight during patrol
 	void SetAttackType(map_id attackType);		// ** Use in combination with DoAttackEnemy()
 	void SetCombineFire();
 	void SetFollowMode(int followMode);			// **
