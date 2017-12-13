@@ -1,7 +1,7 @@
 #pragma once
 
 // Note: This file contains the all important map_id enum.
-//		 This enum is used for almost all aspects of DLL 
+//		 This enum is used for almost all aspects of DLL
 //		 level programming. It provides the names used for
 //		 all units (vehicles/buildings/disasters/resources)
 //		 that can be created and placed on the map.

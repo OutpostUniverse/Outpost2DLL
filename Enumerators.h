@@ -118,7 +118,7 @@ class OP2 ClosestEnumerator
 public:
 	ClosestEnumerator(const LOCATION& location);
 	ClosestEnumerator& operator = (const ClosestEnumerator& closestEnum);
-	int GetNext(Unit& currentUnit, unsigned long &pixelDistance);	
+	int GetNext(Unit& currentUnit, unsigned long &pixelDistance);
 private:
 	int unknown[13];	// **TODO** Fill in details
 };

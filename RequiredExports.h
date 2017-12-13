@@ -52,7 +52,7 @@ struct AIModDesc
 	Export char TechtreeName[] = techTreeName; \
 	Export AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
 
-// This struct defined a memory region to be Saved/Loaded to/from saved game files. 
+// This struct defined a memory region to be Saved/Loaded to/from saved game files.
 // Note: See GetSaveRegions exported function
 // Note: This implies all level data must be statically declared. Avoid using "new".
 // Note: Setting bufferStart to 0 means no data (include buffer size) is present in the saved game file
@@ -93,7 +93,7 @@ typedef AIModDesc SDescBlock;
 //		 structure is also exported to give additional mission info
 //		 (some of which corresponds to the naming of the DLL).
 Export char MapName[];			// Holds the file name of the .map file
-Export char LevelDesc[];		// Description that appears in the list/menu 
+Export char LevelDesc[];		// Description that appears in the list/menu
 Export char TechtreeName[];		// The tech tree to use for this level
 Export AIModDesc DescBlock;		// Exports game info
 
@@ -115,4 +115,3 @@ Export void __cdecl GetSaveRegions(struct BufferDesc &bufDesc);	// Used to retur
 //Export void __cdecl NoResponseToTrigger();	// Used for triggers with no custom effects
 
 #endif	// NoDeprecated
-

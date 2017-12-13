@@ -12,7 +12,7 @@
 //		 it doesn't have to worry about food or idling buildings due
 //		 to lack of workers. You can make a much more realistic AI
 //		 if you leave the player set as human and just program all
-//		 the actions yourself (which you'd have to do anyways since 
+//		 the actions yourself (which you'd have to do anyways since
 //		 Outpost 2 has no real AI and all computer actions are
 //		 hardcoded into each DLL).
 

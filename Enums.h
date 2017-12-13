@@ -6,7 +6,7 @@
 
 
 // Used by various trigger creation functions
-enum compare_mode 
+enum compare_mode
 {
 	cmpEqual = 0,				// 0
 	cmpLowerEqual,				// 1
@@ -16,7 +16,7 @@ enum compare_mode
 };
 
 // Used by CreateResourceTrigger
-enum trig_res 
+enum trig_res
 {
 	resFood = 0,				// 0
 	resCommonOre,				// 1
@@ -44,7 +44,7 @@ enum Truck_Cargo {
 };
 
 // Returned by _Player.FoodSupply()
-enum FoodStatus 
+enum FoodStatus
 {
 	foodRising = 0,				// 0
 	foodNoChange,				// 1 - pretty hard, if not impossible to achieve with food
@@ -53,7 +53,7 @@ enum FoodStatus
 };
 
 // Returned by _Player.MoraleLevel()
-enum MoraleLevels 
+enum MoraleLevels
 {
 	moraleGreat = 0,			// 0
 	moraleGood,					// 1
@@ -83,7 +83,7 @@ enum UnitClassifactions			// [Note: **Typo** in name]
 	clsOreMine,					// D (CommonOreMine, RareOreMine)
 	clsGuardPost,				// E
 	clsBuilding,				// F (more like non vehicle, and non other specified class) (does not include Arachnid Factory, includes beacons, disasters, Blast, Tube, pretty much any non vehicle?)
-	clsNotSet = 0x10,			// 10 
+	clsNotSet = 0x10,			// 10
 	clsAll = 0x11,				// 11 All vehicles and buildings
 };
 typedef UnitClassifactions UnitClassifications;		// Typo fixing typedef
@@ -103,7 +103,7 @@ typedef UnitClassifactions UnitClassifications;		// Typo fixing typedef
 
 
 // Used to define music playlists
-enum SongIds 
+enum SongIds
 {
 	songEden11 = 0,		// 0x0
 	songEden21,			// 0x1
@@ -132,4 +132,3 @@ enum SongIds
 	songStatic04,		// 0x18
 	songStatic05,		// 0x19
 };
-

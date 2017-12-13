@@ -13,8 +13,8 @@ struct LOCATION;
 class Unit;
 class _Player;
 
-// Note: The TethysGame class controls creation of units and disasters, 
-//		 sending custom in game messages to the player, playing recorded 
+// Note: The TethysGame class controls creation of units and disasters,
+//		 sending custom in game messages to the player, playing recorded
 //		 sounds, morale controls, and day and night controls.
 // Note: All members are static. Prefix class name and :: to access these functions.
 //		 Example: numberOfPlayers = TethysGame::NoPlayers();
@@ -68,11 +68,11 @@ public:
 	//  Note: playerNum: -1 = PlayerAll
 	//  Note: Calling ForceMoraleX functions after tick 0 will cause a "Cheated Game!" message to appear. FreeMoraleLevel can be called any time.
 	//  Bug: ForceMoraleX is buggy if playerNum is not -1. You may need to call the function twice for the correct effect (see Forum post). FreeMoraleLevel is not affected by this bug.
-	static void __fastcall ForceMoraleGreat(int playerNum);		
-	static void __fastcall ForceMoraleGood(int playerNum);		
-	static void __fastcall ForceMoraleOK(int playerNum);		
-	static void __fastcall ForceMoralePoor(int playerNum);		
-	static void __fastcall ForceMoraleRotten(int playerNum);	
+	static void __fastcall ForceMoraleGreat(int playerNum);
+	static void __fastcall ForceMoraleGood(int playerNum);
+	static void __fastcall ForceMoraleOK(int playerNum);
+	static void __fastcall ForceMoralePoor(int playerNum);
+	static void __fastcall ForceMoraleRotten(int playerNum);
 	static void __fastcall FreeMoraleLevel(int playerNum);		// Let Morale vary according to colony state and events
 
 	// Random number generation

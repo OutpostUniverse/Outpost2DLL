@@ -27,4 +27,3 @@ public:
 	static void __fastcall SetVirusUL(LOCATION location, int bBlightPresent);
 	static void __fastcall SetInitialLightLevel(int lightPosition);
 };
-

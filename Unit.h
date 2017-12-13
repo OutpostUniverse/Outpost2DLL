@@ -3,7 +3,7 @@
 #define OP2 __declspec(dllimport)
 #endif
 
-// Note: This file is used to define the Unit class. Use this class to 
+// Note: This file is used to define the Unit class. Use this class to
 //		 manipulate all the units in the game.
 // Note: The Unit class is also used in conjunction with the enumerator
 //		 classes used to find units and traverse lists of units, one unit

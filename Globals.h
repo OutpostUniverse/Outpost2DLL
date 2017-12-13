@@ -23,6 +23,3 @@ OP2 int __cdecl scr_snprintf(char* writeBuffer, unsigned int bufferLength, const
 //		 in the level. See Player.h for details.
 
 extern OP2 _Player Player[7];
-
-
-

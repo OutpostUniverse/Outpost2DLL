@@ -163,4 +163,3 @@ OP2 MiningGroup __fastcall CreateMiningGroup(_Player owner);
 OP2 BuildingGroup __fastcall CreateBuildingGroup(_Player owner);
 OP2 FightGroup __fastcall CreateFightGroup(_Player owner);
 OP2 Pinwheel __fastcall CreatePinwheel(_Player& owner);
-

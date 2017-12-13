@@ -16,7 +16,7 @@ enum UnitClassifactions;
 
 
 // Note: These first two structs have all member functions defined and
-//		 exported by Outpost2.exe. (Essentially these structs are 
+//		 exported by Outpost2.exe. (Essentially these structs are
 //		 really classes in disguise.)
 
 struct OP2 LOCATION
@@ -63,13 +63,13 @@ public:
 
 
 
-struct OP2 PatrolRoute 
+struct OP2 PatrolRoute
 {
 	int unknown1;
 	LOCATION* waypoints;	// Max waypoints = 8, set Location.x = -1 for last waypoint in list if list is short
 };
 
-struct OP2 MrRec 
+struct OP2 MrRec
 {
 	map_id unitType;
 	map_id weaponType;
@@ -77,7 +77,7 @@ struct OP2 MrRec
 	int unknown2; // -1 to terminate list
 };
 
-struct OP2 PWDef 
+struct OP2 PWDef
 {
 	int x1; // -1 to terminate list
 	int y1;
@@ -93,12 +93,12 @@ struct OP2 PWDef
 };
 
 // CommandPackets seem to have a set maximum of 0x74 bytes
-// Note: The compiler must be told to pack this structure since the 
+// Note: The compiler must be told to pack this structure since the
 //		 short dataLength would otherwise have 2 padding bytes after
 //		 it which would mess up the rest of the structure.
 
 #pragma pack(push, 1)
-struct OP2 CommandPacket 
+struct OP2 CommandPacket
 {
 	int type;				// 0x00 Type of command - see secret list :)
 	short dataLength;		// 0x04 Length of dataBuff
@@ -110,7 +110,7 @@ struct OP2 CommandPacket
 
 
 // Size: 0x20  [0x20 = 32, or 8 dwords]  [Note: last 2 fields are shorts]
-struct OP2 UnitRecord 
+struct OP2 UnitRecord
 {
 	map_id unitType;							// 0x0
 	int x;										// 0x4
@@ -122,4 +122,3 @@ struct OP2 UnitRecord
 	short cargoType;							// 0x1C
 	short cargoAmount;							// 0x1E
 };
-
