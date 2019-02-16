@@ -62,6 +62,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Outpost2DLL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
     <Library Include="Lib\Outpost2DLL.lib">
       <Filter>Lib</Filter>
     </Library>
