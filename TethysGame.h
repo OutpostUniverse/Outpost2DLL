@@ -95,7 +95,7 @@ public:
 	//  Note: Targets first found block of heighest (non-negative) weight, or the first block if all blocks have negative weight
 	//  Note: Target player military units weigh 64, non-target player military units weigh -32, and non-target player non-military units weigh 1.
 	static LOCATION __fastcall FindEMPMissleTarget(int startTileX, int startTileY, int endTileX, int endTileY, int destPlayerNum);
-	static void __fastcall SetEMPMissile(int launchTileX, int launchTileY, int setToZero, int destTileX, int destTileY);	// Set third param to 0
+	static void __fastcall SetEMPMissile(int launchTileX, int launchTileY, int sourcePlayerNum, int destTileX, int destTileY);
 
 	// Save/Load Games
 	static void __fastcall SaveGame(const char* savedGameName);		// Note: Unimplemented  [Useless]
