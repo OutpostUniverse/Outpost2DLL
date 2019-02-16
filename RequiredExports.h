@@ -33,24 +33,33 @@ struct AIModDesc
 	int maxTechLevel;			// Maximum tech level (Set to 12 to enable all techs)
 	int boolUnitMission;		// Set to 1 to disable most reports (suitable for unit-only missions)
 	// Extra baggage that doesn't need to be set properly
-	char* mapName;
-	char* levelDesc;
-	char* techtreeName;
+	const char* mapName;
+	const char* levelDesc;
+	const char* techtreeName;
 	int checksum;
 };
 
+// Helper macro to declare level DLL required data exports
+#define DeclareExportedLevelDetails \
+	Export const char MapName[]; \
+	Export const char LevelDesc[]; \
+	Export const char TechtreeName[]; \
+	Export const AIModDesc DescBlock;
+
 // Helper Macros to define the required data exports
 #define ExportLevelDetails(levelDesc, mapName, techTreeName, missionType, numPlayers) \
-	Export char MapName[] = mapName; \
-	Export char LevelDesc[] = levelDesc; \
-	Export char TechtreeName[] = techTreeName; \
-	Export AIModDesc DescBlock = { missionType, numPlayers, (missionType > 0) ? missionType : 12, false, MapName, LevelDesc, TechtreeName, 0 }; \
+	DeclareExportedLevelDetails \
+	Export const char MapName[] = mapName; \
+	Export const char LevelDesc[] = levelDesc; \
+	Export const char TechtreeName[] = techTreeName; \
+	Export const AIModDesc DescBlock = { missionType, numPlayers, (missionType > 0) ? missionType : 12, false, MapName, LevelDesc, TechtreeName, 0 }; \
 
 #define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
-	Export char MapName[] = mapName; \
-	Export char LevelDesc[] = levelDesc; \
-	Export char TechtreeName[] = techTreeName; \
-	Export AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
+	DeclareExportedLevelDetails \
+	Export const char MapName[] = mapName; \
+	Export const char LevelDesc[] = levelDesc; \
+	Export const char TechtreeName[] = techTreeName; \
+	Export const AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
 
 // This struct defined a memory region to be Saved/Loaded to/from saved game files.
 // Note: See GetSaveRegions exported function
