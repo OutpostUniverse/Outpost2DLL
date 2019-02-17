@@ -101,10 +101,10 @@ typedef AIModDesc SDescBlock;
 //		 used, and what description to place in the level list box. A
 //		 structure is also exported to give additional mission info
 //		 (some of which corresponds to the naming of the DLL).
-Export char MapName[];			// Holds the file name of the .map file
-Export char LevelDesc[];		// Description that appears in the list/menu
-Export char TechtreeName[];		// The tech tree to use for this level
-Export AIModDesc DescBlock;		// Exports game info
+Export const char MapName[];      // Holds the file name of the .map file
+Export const char LevelDesc[];    // Description that appears in the list/menu
+Export const char TechtreeName[]; // The tech tree to use for this level
+Export const AIModDesc DescBlock; // Exports game info
 
 
 // Note: These functions are required exports from all level DLLs.
