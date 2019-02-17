@@ -39,23 +39,14 @@ struct AIModDesc
 	int checksum;
 };
 
-// Helper macro to declare level DLL required data exports
-#define DeclareExportedLevelDetails \
-	Export const char MapName[]; \
-	Export const char LevelDesc[]; \
-	Export const char TechtreeName[]; \
-	Export const AIModDesc DescBlock;
-
 // Helper Macros to define the required data exports
 #define ExportLevelDetails(levelDesc, mapName, techTreeName, missionType, numPlayers) \
-	DeclareExportedLevelDetails \
 	Export const char MapName[] = mapName; \
 	Export const char LevelDesc[] = levelDesc; \
 	Export const char TechtreeName[] = techTreeName; \
 	Export const AIModDesc DescBlock = { missionType, numPlayers, (missionType > 0) ? missionType : 12, false, MapName, LevelDesc, TechtreeName, 0 }; \
 
 #define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
-	DeclareExportedLevelDetails \
 	Export const char MapName[] = mapName; \
 	Export const char LevelDesc[] = levelDesc; \
 	Export const char TechtreeName[] = techTreeName; \
