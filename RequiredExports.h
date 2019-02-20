@@ -33,24 +33,24 @@ struct AIModDesc
 	int maxTechLevel;			// Maximum tech level (Set to 12 to enable all techs)
 	int boolUnitMission;		// Set to 1 to disable most reports (suitable for unit-only missions)
 	// Extra baggage that doesn't need to be set properly
-	char* mapName;
-	char* levelDesc;
-	char* techtreeName;
+	const char* mapName;
+	const char* levelDesc;
+	const char* techtreeName;
 	int checksum;
 };
 
 // Helper Macros to define the required data exports
 #define ExportLevelDetails(levelDesc, mapName, techTreeName, missionType, numPlayers) \
-	Export char MapName[] = mapName; \
-	Export char LevelDesc[] = levelDesc; \
-	Export char TechtreeName[] = techTreeName; \
-	Export AIModDesc DescBlock = { missionType, numPlayers, (missionType > 0) ? missionType : 12, false, MapName, LevelDesc, TechtreeName, 0 }; \
+	Export const char MapName[] = mapName; \
+	Export const char LevelDesc[] = levelDesc; \
+	Export const char TechtreeName[] = techTreeName; \
+	Export const AIModDesc DescBlock = { missionType, numPlayers, (missionType > 0) ? missionType : 12, false, MapName, LevelDesc, TechtreeName, 0 }; \
 
 #define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
-	Export char MapName[] = mapName; \
-	Export char LevelDesc[] = levelDesc; \
-	Export char TechtreeName[] = techTreeName; \
-	Export AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
+	Export const char MapName[] = mapName; \
+	Export const char LevelDesc[] = levelDesc; \
+	Export const char TechtreeName[] = techTreeName; \
+	Export const AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
 
 // This struct defined a memory region to be Saved/Loaded to/from saved game files.
 // Note: See GetSaveRegions exported function
@@ -92,10 +92,10 @@ typedef AIModDesc SDescBlock;
 //		 used, and what description to place in the level list box. A
 //		 structure is also exported to give additional mission info
 //		 (some of which corresponds to the naming of the DLL).
-Export char MapName[];			// Holds the file name of the .map file
-Export char LevelDesc[];		// Description that appears in the list/menu
-Export char TechtreeName[];		// The tech tree to use for this level
-Export AIModDesc DescBlock;		// Exports game info
+Export const char MapName[];      // Holds the file name of the .map file
+Export const char LevelDesc[];    // Description that appears in the list/menu
+Export const char TechtreeName[]; // The tech tree to use for this level
+Export const AIModDesc DescBlock; // Exports game info
 
 
 // Note: These functions are required exports from all level DLLs.
