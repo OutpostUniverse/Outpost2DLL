@@ -53,6 +53,10 @@ struct AIModDesc
 	_Pragma("message(\"Warning: `ExportLevelDetailsEx` has been deprecated. Please use `ExportLevelDetailsFull` instead\")") \
 	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission)
 
+#define ExportLevelDetailsFullEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission, numAiPlayers) \
+	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
+	Export const AIModDescEx DescBlockEx = { numAiPlayers };
+
 // Struct introduced in the official Sierra release update pack 1 (1.2.0.7)
 // Set aiPlayerCount to 1 to allow a computer controlled AI in a multiplayer scenario
 // Example: Export AIModDescEx aiModDescEx = { 1 };
