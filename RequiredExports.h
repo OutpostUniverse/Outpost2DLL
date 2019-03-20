@@ -40,19 +40,31 @@ struct AIModDesc
 };
 
 // Helper Macros to define the required data exports
+
+// Full level details for Outpost 2 version 1.2.0.5 and up
+// Needed for unit only missions, or non-standard tech level settings
+// Does not support multiplayer AI (added in Outpost 2 versions 1.2.0.7)
 #define ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
 	Export const char MapName[] = mapName; \
 	Export const char LevelDesc[] = levelDesc; \
 	Export const char TechtreeName[] = techTreeName; \
 	Export const AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
 
+// Simplified level details for Outpost 2 version 1.2.0.5 and up
+// Suitable for most levels (colony, campaign, multiplayer), except unit only missions
 #define ExportLevelDetails(levelDesc, mapName, techTreeName, missionType, numPlayers) \
 	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, (missionType > 0) ? missionType : 12, false)
 
+// Deprecated macro. Renamed to ExportLevelDetailsFull
+// The name is potentially confusing as it did not create a `DescBlockEx` export
+// May be replaced by an incompatible macro in future versions of the SDK
 #define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
 	_Pragma("message(\"Warning: `ExportLevelDetailsEx` has been deprecated. Please use `ExportLevelDetailsFull` instead\")") \
 	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission)
 
+// Full level details for Outpost 2 version 1.2.0.7 and up
+// Needed for multiplayer AI support
+// Supports all level configurations, including multiplayer AI
 #define ExportLevelDetailsFullEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission, numAiPlayers) \
 	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
 	Export const AIModDescEx DescBlockEx = { numAiPlayers };
