@@ -52,6 +52,14 @@ struct AIModDesc
 	Export const char TechtreeName[] = techTreeName; \
 	Export const AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
 
+// Struct introduced in the official Sierra release update pack 1 (1.2.0.7)
+// Set aiPlayerCount to 1 to allow a computer controlled AI in a multiplayer scenario
+// Example: Export AIModDescEx aiModDescEx = { 1 };
+struct AIModDescEx {
+	int aiPlayerCount;
+	int unused[7];
+};
+
 // This struct defined a memory region to be Saved/Loaded to/from saved game files.
 // Note: See GetSaveRegions exported function
 // Note: This implies all level data must be statically declared. Avoid using "new".
