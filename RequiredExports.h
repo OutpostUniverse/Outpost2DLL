@@ -40,14 +40,18 @@ struct AIModDesc
 };
 
 // Helper Macros to define the required data exports
-#define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
+#define ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
 	Export const char MapName[] = mapName; \
 	Export const char LevelDesc[] = levelDesc; \
 	Export const char TechtreeName[] = techTreeName; \
 	Export const AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
 
 #define ExportLevelDetails(levelDesc, mapName, techTreeName, missionType, numPlayers) \
-	ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, (missionType > 0) ? missionType : 12, false)
+	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, (missionType > 0) ? missionType : 12, false)
+
+#define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
+	_Pragma("message(\"Warning: `ExportLevelDetailsEx` has been deprecated. Please use `ExportLevelDetailsFull` instead\")") \
+	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission)
 
 // Struct introduced in the official Sierra release update pack 1 (1.2.0.7)
 // Set aiPlayerCount to 1 to allow a computer controlled AI in a multiplayer scenario
