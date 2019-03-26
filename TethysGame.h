@@ -43,7 +43,9 @@ public:
 	//  Note: SoundIndex = 94..227 [Inclusive] are recorded voice messages
 	static void __fastcall AddGameSound(int soundIndex, int toPlayerNum);			// Note: toPlayerNum: -1 = PlayerAll
 	static void __fastcall AddMapSound(int soundIndex, LOCATION location);
+	
 	// Message log
+	// To add a message that is location agnostic, set pixelX and pixelY to -1
 	static void __fastcall AddMessage(int pixelX, int pixelY, char *message, int toPlayerNum, int soundIndex);	// Note: toPlayerNum: -1 = PlayerAll
 	static void __fastcall AddMessage(Unit owner, char *message, int toPlayerNum, int soundIndex);				// Note: toPlayerNum: -1 = PlayerAll
 
