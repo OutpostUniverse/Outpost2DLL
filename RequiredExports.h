@@ -39,6 +39,14 @@ struct AIModDesc
 	int checksum;
 };
 
+// Struct introduced in the official Sierra release update pack 1 (1.2.0.7)
+// Set aiPlayerCount to 1 to allow a computer controlled AI in a multiplayer scenario
+// Example: Export AIModDescEx aiModDescEx = { 1 };
+struct AIModDescEx {
+	int aiPlayerCount;
+	int unused[7];
+};
+
 // Helper Macros to define the required data exports
 
 // Full level details for Outpost 2 version 1.2.0.5 and up
@@ -69,13 +77,6 @@ struct AIModDesc
 	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
 	Export const AIModDescEx DescBlockEx = { numAiPlayers };
 
-// Struct introduced in the official Sierra release update pack 1 (1.2.0.7)
-// Set aiPlayerCount to 1 to allow a computer controlled AI in a multiplayer scenario
-// Example: Export AIModDescEx aiModDescEx = { 1 };
-struct AIModDescEx {
-	int aiPlayerCount;
-	int unused[7];
-};
 
 // This struct defined a memory region to be Saved/Loaded to/from saved game files.
 // Note: See GetSaveRegions exported function
