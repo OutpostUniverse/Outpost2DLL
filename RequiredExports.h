@@ -4,8 +4,10 @@
 //		 DLL that are needed in order for Outpost 2 to recognize the DLL
 //		 as a level.
 
+
 // A define used to make exporting functions and variables easier
 #define Export extern "C" __declspec(dllexport)
+
 
 // Mission types, and the corresponding DLL name prefix
 // Note: For campaign games, use a positive level number, and a prefix of e (Eden) or p (Plymouth)
@@ -46,6 +48,7 @@ struct AIModDescEx {
 	int aiPlayerCount;
 	int unused[7];
 };
+
 
 // Helper Macros to define the required data exports
 
