@@ -70,7 +70,7 @@ struct AIModDescEx {
 // The name is potentially confusing as it did not create a `DescBlockEx` export
 // May be replaced by an incompatible macro in future versions of the SDK
 #define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
-	_Pragma("message(\"Warning: `ExportLevelDetailsEx` has been deprecated. Please use `ExportLevelDetailsFull` instead\")") \
+	__pragma(message("Warning: `ExportLevelDetailsEx` has been deprecated. Please use `ExportLevelDetailsFull` instead")) \
 	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission)
 
 // Full level details for Outpost 2 version 1.2.0.7 and up
