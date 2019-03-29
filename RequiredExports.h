@@ -4,8 +4,10 @@
 //		 DLL that are needed in order for Outpost 2 to recognize the DLL
 //		 as a level.
 
+
 // A define used to make exporting functions and variables easier
 #define Export extern "C" __declspec(dllexport)
+
 
 // Mission types, and the corresponding DLL name prefix
 // Note: For campaign games, use a positive level number, and a prefix of e (Eden) or p (Plymouth)
@@ -39,19 +41,6 @@ struct AIModDesc
 	int checksum;
 };
 
-// Helper Macros to define the required data exports
-#define ExportLevelDetails(levelDesc, mapName, techTreeName, missionType, numPlayers) \
-	Export const char MapName[] = mapName; \
-	Export const char LevelDesc[] = levelDesc; \
-	Export const char TechtreeName[] = techTreeName; \
-	Export const AIModDesc DescBlock = { missionType, numPlayers, (missionType > 0) ? missionType : 12, false, MapName, LevelDesc, TechtreeName, 0 }; \
-
-#define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
-	Export const char MapName[] = mapName; \
-	Export const char LevelDesc[] = levelDesc; \
-	Export const char TechtreeName[] = techTreeName; \
-	Export const AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
-
 // Struct introduced in the official Sierra release update pack 1 (1.2.0.7)
 // Set aiPlayerCount to 1 to allow a computer controlled AI in a multiplayer scenario
 // Example: Export AIModDescEx aiModDescEx = { 1 };
@@ -59,6 +48,38 @@ struct AIModDescEx {
 	int aiPlayerCount;
 	int unused[7];
 };
+
+
+// Helper Macros to define the required data exports
+
+// Full level details for Outpost 2 version 1.2.0.5 and up
+// Needed for unit only missions, or non-standard tech level settings
+// Does not support multiplayer AI (added in Outpost 2 versions 1.2.0.7)
+#define ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
+	Export const char MapName[] = mapName; \
+	Export const char LevelDesc[] = levelDesc; \
+	Export const char TechtreeName[] = techTreeName; \
+	Export const AIModDesc DescBlock = { missionType, numPlayers, maxTechLevel, bUnitOnlyMission, MapName, LevelDesc, TechtreeName, 0 };
+
+// Simplified level details for Outpost 2 version 1.2.0.5 and up
+// Suitable for most levels (colony, campaign, multiplayer), except unit only missions
+#define ExportLevelDetails(levelDesc, mapName, techTreeName, missionType, numPlayers) \
+	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, (missionType > 0) ? missionType : 12, false)
+
+// Deprecated macro. Renamed to ExportLevelDetailsFull
+// The name is potentially confusing as it did not create a `DescBlockEx` export
+// May be replaced by an incompatible macro in future versions of the SDK
+#define ExportLevelDetailsEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
+	__pragma(message("Warning: `ExportLevelDetailsEx` has been deprecated. Please use `ExportLevelDetailsFull` instead")) \
+	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission)
+
+// Full level details for Outpost 2 version 1.2.0.7 and up
+// Needed for multiplayer AI support
+// Supports all level configurations, including multiplayer AI
+#define ExportLevelDetailsFullEx(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission, numAiPlayers) \
+	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
+	Export const AIModDescEx DescBlockEx = { numAiPlayers };
+
 
 // This struct defined a memory region to be Saved/Loaded to/from saved game files.
 // Note: See GetSaveRegions exported function
