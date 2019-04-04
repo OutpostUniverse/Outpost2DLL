@@ -1,5 +1,4 @@
-#ifndef CCONFIG_H
-#define CCONFIG_H
+#pragma once
 
 // OP2 INI config class.
 class OP2 CConfig
@@ -22,5 +21,3 @@ public:
 };
 
 OP2 CConfig gConfigFile;
-
-#endif

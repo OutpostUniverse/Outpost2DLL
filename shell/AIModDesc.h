@@ -1,5 +1,4 @@
-#ifndef AIMODDESC_H
-#define AIMODDESC_H
+#pragma once
 
 // AIModDesc structure and related functions.
 // Outpost2 uses an AIModDesc structure to store and pass information about a mission DLL.
@@ -21,5 +20,3 @@ OP2 AIModDesc* __fastcall GetModuleDesc(char const *filename);
 
 // Frees the AIModDesc returned from a previous GetModuleDesc call.
 OP2 void __fastcall FreeModuleDesc(AIModDesc* desc);
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef UISTATE_H
-#define UISTATE_H
+#pragma once
 
 // OP2 UI state objects
 class OP2 UIState
@@ -32,5 +31,3 @@ public:
 	virtual void SetCheck(int);
 	virtual void SetText(char const *);
 };
-
-#endif

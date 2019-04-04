@@ -1,5 +1,4 @@
-#ifndef RESMANAGER_H
-#define RESMANAGER_H
+#pragma once
 
 // ResManager declarations.
 // Outpost2 uses the ResManager to locate and load game resources.
@@ -34,5 +33,3 @@ public:
 
 // Global ResManager object that should be used, instead of creating a new ResManager
 OP2 ResManager g_ResManager;
-
-#endif

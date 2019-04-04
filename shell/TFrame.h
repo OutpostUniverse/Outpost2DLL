@@ -1,5 +1,4 @@
-#ifndef TFRAME_H
-#define TFRAME_H
+#pragma once
 
 // TFrame related declarations.
 // TFrame is the base class for a 'frame' window which generally contains / owns other windows.
@@ -23,5 +22,3 @@ protected:
 	virtual void ShutDown(void);
 	virtual long WndProc(unsigned int,unsigned int,long);
 };
-
-#endif

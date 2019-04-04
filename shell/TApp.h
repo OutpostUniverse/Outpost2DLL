@@ -1,5 +1,4 @@
-#ifndef TAPP_H
-#define TAPP_H
+#pragma once
 
 // TApp declarations.
 // The TApp object represents the core of Outpost2.exe.
@@ -81,5 +80,3 @@ private:
 
 // Use this TApp instance, instead of creating your own.
 OP2 TApp gTApp;
-
-#endif

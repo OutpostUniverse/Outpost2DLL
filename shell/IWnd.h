@@ -1,5 +1,4 @@
-#ifndef IWND_H
-#define IWND_H
+#pragma once
 
 // IWnd declarations.
 // The IWnd class is the base class for most windows in Outpost2.
@@ -25,5 +24,3 @@ public:
 private:
 	virtual char const* RegisterClassA(void);
 };
-
-#endif

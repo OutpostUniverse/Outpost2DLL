@@ -1,5 +1,4 @@
-#ifndef OUTPOST2APP_H
-#define OUTPOST2APP_H
+#pragma once
 
 // Windows stuff (HWND, HINSTANCE etc)
 #define WIN32_LEAN_AND_MEAN
@@ -9,8 +8,3 @@
 #include <Outpost2DLL.h>
 
 // Include other files here.
-
-
-
-
-#endif

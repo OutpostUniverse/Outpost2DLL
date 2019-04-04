@@ -1,5 +1,4 @@
-#ifndef IDLGWND_H
-#define IDLGWND_H
+#pragma once
 
 // IDlgWnd declarations.
 // IDlgWnd is the base class for most dialogs in Outpost2.
@@ -26,5 +25,3 @@ private:
 	static int nModelessCount;
 	static IDlgWnd *pFirst;
 };
-
-#endif

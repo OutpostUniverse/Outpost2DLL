@@ -1,5 +1,4 @@
-#ifndef FILTERS_H
-#define FILTERS_H
+#pragma once
 
 // OP2 "filter" objects
 class OP2 Filter
@@ -37,5 +36,3 @@ public:
 	void ReleaseCapture(GroupFilter *,IWnd *);
 	void SetCapture(GroupFilter *,IWnd *,int);
 };
-
-#endif
