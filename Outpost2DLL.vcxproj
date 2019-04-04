@@ -11,23 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Outpost2DLL.cpp" />
-    <ClInclude Include="Enumerators.h" />
-    <ClInclude Include="Enums.h" />
-    <ClInclude Include="GameMap.h" />
-    <ClInclude Include="Globals.h" />
-    <ClInclude Include="Groups.h" />
-    <ClInclude Include="MapIdEnum.h" />
-    <ClInclude Include="NonExportedEnums.h" />
+    <ClCompile Include="game\Outpost2DLL.cpp" />
+    <ClInclude Include="game\Enumerators.h" />
+    <ClInclude Include="game\Enums.h" />
+    <ClInclude Include="game\GameMap.h" />
+    <ClInclude Include="game\Globals.h" />
+    <ClInclude Include="game\Groups.h" />
+    <ClInclude Include="game\MapIdEnum.h" />
+    <ClInclude Include="game\NonExportedEnums.h" />
     <ClInclude Include="Outpost2DLL.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="RequiredExports.h" />
-    <ClInclude Include="ScStub.h" />
-    <ClInclude Include="Structs.h" />
-    <ClInclude Include="TethysGame.h" />
-    <ClInclude Include="Trigger.h" />
-    <ClInclude Include="Unit.h" />
-    <ClInclude Include="UnitBlock.h" />
+    <ClInclude Include="game\Player.h" />
+    <ClInclude Include="game\RequiredExports.h" />
+    <ClInclude Include="game\ScStub.h" />
+    <ClInclude Include="game\Structs.h" />
+    <ClInclude Include="game\TethysGame.h" />
+    <ClInclude Include="game\Trigger.h" />
+    <ClInclude Include="game\Unit.h" />
+    <ClInclude Include="game\UnitBlock.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="Lib\Outpost2DLL.lib" />
