@@ -18,12 +18,12 @@ public:
 	StreamIO* CreateStream(char const *);
 	int FindCDRoot(char *);
 	void GetCDDir(char *);
-	int GetFilePath(char const *,char *);
+	int GetFilePath(char const *, char *);
 	void GetInstalledDir(char *);
 	int Init(void);
 	int InitCDDir(void);
 	void InitInstalledDir(void);
-	void* LockStream(char const *,int *);
+	void* LockStream(char const *, int *);
 	StreamIO* OpenStream(char const *);
 	void ReleaseStream(StreamIO *);
 	void ShutDown(void);

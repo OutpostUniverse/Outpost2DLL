@@ -17,8 +17,9 @@ public:
 	virtual void PostCreateDlg(void);
 	void PostDelayedLoadMessage(char const *);
 	virtual void PreCreateDlg(void);
+
 protected:
-	void HandleMenuInit(HMENU,unsigned int,int);
+	void HandleMenuInit(HMENU, unsigned int, int);
 	virtual void ShutDown(void);
-	virtual long WndProc(unsigned int,unsigned int,long);
+	virtual long WndProc(unsigned int, unsigned int, long);
 };

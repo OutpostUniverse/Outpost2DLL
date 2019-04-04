@@ -25,7 +25,7 @@ class OP2 MenuState
 {
 public:
 	MenuState(MenuState const &);
-	MenuState(HMENU,unsigned int);
+	MenuState(HMENU, unsigned int);
 	MenuState & operator=(MenuState const &);
 	virtual void Enable(int);
 	virtual void SetCheck(int);

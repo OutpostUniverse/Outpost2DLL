@@ -32,7 +32,7 @@ public:
 	int DoNetGame(int,char const *);
 	int EnableModeSwitching(void);
 	void EndWaitCursor(void);
-	static long __stdcall F1DetectHook(int,unsigned int,long);
+	static long __stdcall F1DetectHook(int, unsigned int, long);
 	HINSTANCE GetAccelInst(void) const;
 	void GetAppDesc(char *);
 	HINSTANCE GetBmpInst(void) const;
@@ -47,7 +47,7 @@ public:
 	int HandleCommand(unsigned int);
 	int HideDirectDraw(HWND);
 	int Init(void);
-	int __stdcall InstallFilterFunc(int,int);
+	int __stdcall InstallFilterFunc(int, int);
 	int LoadGame(char const *);
 	int LobbyActive(void);
 	void LobbyShutdown(void);
@@ -63,17 +63,18 @@ public:
 	void OnSaveGame(void);
 	void OnSaveSlot(void);
 	void ParseCommandLine(char *);
-	int PlaybackCommand(CommandPacket *,int);
+	int PlaybackCommand(CommandPacket *, int);
 	int PumpMessage(void);
 	int RestoreDirectDraw(HWND);
 	void Run(void);
-	void SaveGame(char const *,TFileDialog *);
+	void SaveGame(char const *, TFileDialog *);
 	void SetLobby(TLobby *);
 	void SetMainInst(HINSTANCE);
 	int SetUIState(UIState *);
 	void ShutDown(void);
 	int StartSingleGame(GameStartInfo *);
 	unsigned long Version(void);
+
 private:
 	int InitForDirectDraw(void);
 };
