@@ -1,10 +1,10 @@
 #pragma once
 
-// Windows stuff (HWND, HINSTANCE etc)
+#include "Outpost2DLL.h"
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-// Outpost 2 stuff
-#include <Outpost2DLL.h>
+
+
 
 // Include other files here.
