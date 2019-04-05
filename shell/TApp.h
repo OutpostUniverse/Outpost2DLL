@@ -8,12 +8,8 @@
 enum GameTermReasons
 {
 };
-struct MissionResults
-{
-};
-struct CommandPacket
-{
-};
+struct MissionResults;
+struct CommandPacket;
 
 class OP2 TApp
 {
