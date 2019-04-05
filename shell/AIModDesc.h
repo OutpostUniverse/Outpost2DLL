@@ -1,19 +1,13 @@
 #pragma once
 
-// AIModDesc structure and related functions.
 // Outpost2 uses an AIModDesc structure to store and pass information about a mission DLL.
+// See RequiredExports.h for the full definition of AIModDesc.
 
-// Structure declaration
-struct AIModDesc
-{
-	DescBlock descBlock;
-	char *pMapName;
-	char *pLevelDesc;
-	char *pTechtreeName;
-	long unknown;
-};
+struct AIModDesc;
+
 
 // Retrieves the AIModDesc for a given DLL name.
+// When done, pass the returned pointer to FreeModuleDesc
 OP2 AIModDesc* __fastcall GetModuleDesc(char const *filename);
 
 // Frees the AIModDesc returned from a previous GetModuleDesc call.
