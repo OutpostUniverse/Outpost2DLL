@@ -1,14 +1,11 @@
 #pragma once
 
-// ResManager declarations.
 // Outpost2 uses the ResManager to locate and load game resources.
 // It also includes functions to check for the existence of the CD (though these have been partially
 // overridden by OPU hacks to allow the user to play without a CD).
 
 // Declared in Outpost2 but not exported and we don't know that much about it.
-class StreamIO
-{
-};
+class StreamIO;
 
 class OP2 ResManager
 {
