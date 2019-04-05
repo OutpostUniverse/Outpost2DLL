@@ -11,8 +11,6 @@ struct AIModDesc
 	char *pLevelDesc;
 	char *pTechtreeName;
 	long unknown;
-	char mapName[16];
-	char levelDesc[48];
 };
 
 // Retrieves the AIModDesc for a given DLL name.
