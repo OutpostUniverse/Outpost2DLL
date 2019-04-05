@@ -4,10 +4,22 @@
 // The TApp object represents the core of Outpost2.exe.
 // It is called into directly from WinMain and is responsible for main application control.
 
-// These are declared in OP2 but not exported.
-enum GameTermReasons
-{
+enum GameTermReasons {
+	GameTermRunning             = 0,  // Still running
+
+	GameTermMissionAccomplished = 3,  // Mission Accomplished
+	GameTermMissionFailed       = 4,  // Mission Failed
+
+	GameTermMissionAborted      = 6,  // Mission aborted  (single player abort?)
+	GameTermVictory             = 7,  // Victory is sweet
+	GameTermDefeat              = 8,  // You have been defeated
+	GameTermControlTerminated   = 9,  // Control terminated  (multiplayer abort?)
+	GameTermDemo1               = 10, // Outpost 2 Demo
+	GameTermDemo2               = 11, // Outpost 2 Demo
+
+	// ...                            // other: Game Over
 };
+
 struct MissionResults;
 struct CommandPacket;
 class TFileDialog;
