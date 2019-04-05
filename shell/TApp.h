@@ -10,6 +10,11 @@ enum GameTermReasons
 };
 struct MissionResults;
 struct CommandPacket;
+class TFileDialog;
+class TLobby;
+class UIState;
+struct GameStartInfo;
+
 
 class OP2 TApp
 {
