@@ -1,5 +1,8 @@
 #pragma once
 
+#include "IWnd.h"
+
+
 // TFrame related declarations.
 // TFrame is the base class for a 'frame' window which generally contains / owns other windows.
 // In Outpost2 the shell and Dans_RULE_UIFrame (the in game window) are both TFrames.

@@ -1,5 +1,8 @@
 #pragma once
 
+#include "IWnd.h"
+
+
 // IDlgWnd declarations.
 // IDlgWnd is the base class for most dialogs in Outpost2.
 
