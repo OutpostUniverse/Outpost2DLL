@@ -1,8 +1,5 @@
 #pragma once
 
-// TApp declarations.
-// The TApp object represents the core of Outpost2.exe.
-// It is called into directly from WinMain and is responsible for main application control.
 
 enum GameTermReasons {
 	GameTermRunning             = 0,  // Still running
@@ -28,6 +25,8 @@ class UIState;
 struct GameStartInfo;
 
 
+// The TApp object represents the core of Outpost2.exe.
+// It is called into directly from WinMain and is responsible for main application control.
 class OP2 TApp
 {
 public:

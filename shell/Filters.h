@@ -4,7 +4,6 @@ class IWnd;
 struct FilterNode;
 
 
-// OP2 "filter" objects
 class OP2 Filter
 {
 public:

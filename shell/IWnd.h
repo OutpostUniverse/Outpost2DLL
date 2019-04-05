@@ -18,10 +18,8 @@ class Filter;
 struct FilterNode;
 
 
-// IWnd declarations.
 // The IWnd class is the base class for most windows in Outpost2.
-// It abstracts the Win32 windowing calls (though not much, since you still have to use the API).
-
+// It wraps the Win32 windowing API.
 class OP2 IWnd
 {
 public:

@@ -3,9 +3,7 @@
 #include "IWnd.h"
 
 
-// IDlgWnd declarations.
 // IDlgWnd is the base class for most dialogs in Outpost2.
-
 class OP2 IDlgWnd : public IWnd
 {
 public:

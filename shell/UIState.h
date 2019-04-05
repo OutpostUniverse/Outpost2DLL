@@ -4,8 +4,6 @@
 #include <windows.h>
 
 
-// OP2 UI state objects
-
 class OP2 BoolState
 {
 public:
