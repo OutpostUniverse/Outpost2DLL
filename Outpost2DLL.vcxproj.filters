@@ -62,7 +62,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game\Outpost2DLL.cpp">
+    <ClCompile Include="DummyMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

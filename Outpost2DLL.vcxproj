@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game\Outpost2DLL.cpp" />
+    <ClCompile Include="DummyMain.cpp" />
     <ClInclude Include="game\Enumerators.h" />
     <ClInclude Include="game\Enums.h" />
     <ClInclude Include="game\GameMap.h" />
