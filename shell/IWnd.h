@@ -1,6 +1,16 @@
 #pragma once
 
 
+enum FilterPositions {
+	FilterPosLast = 0,
+	FilterPosFirst = 1,
+};
+
+enum FilterOptions {
+	FilterOptMouseMessage = 1,
+	FilterOptKeyboardMessage = 2,
+};
+
 class Filter;
 struct FilterNode;
 
