@@ -19,6 +19,7 @@
     <ClInclude Include="game\Groups.h" />
     <ClInclude Include="game\MapIdEnum.h" />
     <ClInclude Include="game\NonExportedEnums.h" />
+    <ClInclude Include="Outpost2App.h" />
     <ClInclude Include="Outpost2DLL.h" />
     <ClInclude Include="game\Player.h" />
     <ClInclude Include="game\RequiredExports.h" />
@@ -28,6 +29,15 @@
     <ClInclude Include="game\Trigger.h" />
     <ClInclude Include="game\Unit.h" />
     <ClInclude Include="game\UnitBlock.h" />
+    <ClInclude Include="shell\CConfig.h" />
+    <ClInclude Include="shell\Filters.h" />
+    <ClInclude Include="shell\IDlgWnd.h" />
+    <ClInclude Include="shell\IWnd.h" />
+    <ClInclude Include="shell\ModuleDesc.h" />
+    <ClInclude Include="shell\ResManager.h" />
+    <ClInclude Include="shell\TApp.h" />
+    <ClInclude Include="shell\TFrame.h" />
+    <ClInclude Include="shell\UIState.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="Lib\Outpost2DLL.lib" />
