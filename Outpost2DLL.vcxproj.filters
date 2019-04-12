@@ -10,65 +10,96 @@
     <Filter Include="Lib">
       <UniqueIdentifier>{01ab2f8c-dde7-49b4-8158-80d234528dc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shell">
+      <UniqueIdentifier>{6632548c-535c-4ca3-a683-f248f0dc3dbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Outpost2DLL.h">
       <Filter>Master Header</Filter>
     </ClInclude>
-    <ClInclude Include="Enumerators.h">
+    <ClInclude Include="game\Enumerators.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Enums.h">
+    <ClInclude Include="game\Enums.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="GameMap.h">
+    <ClInclude Include="game\GameMap.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Globals.h">
+    <ClInclude Include="game\Globals.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Groups.h">
+    <ClInclude Include="game\Groups.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="MapIdEnum.h">
+    <ClInclude Include="game\MapIdEnum.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="NonExportedEnums.h">
+    <ClInclude Include="game\NonExportedEnums.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="game\Player.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="RequiredExports.h">
+    <ClInclude Include="game\RequiredExports.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="ScStub.h">
+    <ClInclude Include="game\ScStub.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Structs.h">
+    <ClInclude Include="game\Structs.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="TethysGame.h">
+    <ClInclude Include="game\TethysGame.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Trigger.h">
+    <ClInclude Include="game\Trigger.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Unit.h">
+    <ClInclude Include="game\Unit.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-    <ClInclude Include="UnitBlock.h">
+    <ClInclude Include="game\UnitBlock.h">
       <Filter>Sub Headers</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Outpost2DLL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="shell\CConfig.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="shell\Filters.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="shell\IDlgWnd.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="shell\IWnd.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="shell\ModuleDesc.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="shell\ResManager.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="shell\TApp.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="shell\TFrame.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="shell\UIState.h">
+      <Filter>shell</Filter>
+    </ClInclude>
+    <ClInclude Include="Outpost2App.h">
+      <Filter>Master Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="Lib\Outpost2DLL.lib">
       <Filter>Lib</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DummyMain.cpp" />
   </ItemGroup>
 </Project>
