@@ -79,7 +79,7 @@ public:
 	void RecordTubesTouching(LOCATION &startLocation);
 	void RecordUnitBlock(UnitBlock& unitBlock);
 	void RecordUnitBlock(UnitBlock& unitBlock, ScGroup&);	// **
-	void RecordVehReinforceGroup(ScGroup& targetGroup, int priority); // 0 = lowest priority, 0xFFFF = highest
+	void RecordVehReinforceGroup(ScGroup& targetGroup, int priority); // 1 = lowest priority, 0xFFFF = highest, 0 may cause hang in Outpost 2
 	void RecordWall(LOCATION& location, map_id wallType);
 	void SetRect(MAP_RECT& defaultLocation);
 	void UnRecordVehGroup(ScGroup& group);
