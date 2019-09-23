@@ -1,4 +1,7 @@
 #pragma once
+#ifndef OP2
+#define OP2 __declspec(dllimport)
+#endif
 
 // Outpost2 uses the ResManager to locate and load game resources.
 // It also includes functions to check for the existence of the CD.
