@@ -18,6 +18,7 @@
 
 
 #include "MapIdEnum.h"
+#include "Enums.h"
 
 // External type names
 struct MAP_RECT;
