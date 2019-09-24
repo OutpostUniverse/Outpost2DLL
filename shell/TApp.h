@@ -3,6 +3,9 @@
 #define OP2 __declspec(dllimport)
 #endif
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
 
 enum GameTermReasons {
 	GameTermRunning             = 0,  // Still running
