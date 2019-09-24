@@ -9,9 +9,10 @@
 //		 classes used to find units and traverse lists of units, one unit
 //		 at a time. See Enumerator.h for details.
 
+#include "MapIdEnum.h"
+#include "Enums.h"
+
 // External type names
-enum map_id;
-enum Truck_Cargo;
 struct LOCATION;
 struct CommandPacket;
 

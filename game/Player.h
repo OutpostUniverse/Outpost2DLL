@@ -17,8 +17,10 @@
 //		 hardcoded into each DLL).
 
 
+#include "MapIdEnum.h"
+#include "Enums.h"
+
 // External type names
-enum map_id;
 struct MAP_RECT;
 class ScGroup;		// **
 

@@ -6,9 +6,10 @@
 // Note: This file contains the defintion of the TethysGame class
 //		which controls the overall game environment
 
+#include "MapIdEnum.h"
+#include "Enums.h"
+
 // External type names
-enum map_id;
-enum SongIds;
 struct LOCATION;
 class Unit;
 class _Player;

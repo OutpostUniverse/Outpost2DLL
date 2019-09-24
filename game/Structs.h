@@ -4,15 +4,13 @@
 #endif
 
 
-// External type names
-enum map_id;
-enum UnitClassifactions;
-
-
 // Note: This file contains all the exported structures from Outpost2.exe.
 // Note: Some of these structures are really more like full classes but
 //		 since they called them struct's we'll let that one slide. =)
 
+
+#include "MapIdEnum.h"
+#include "Enums.h"
 
 
 // Note: These first two structs have all member functions defined and

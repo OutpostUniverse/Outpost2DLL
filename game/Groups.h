@@ -10,11 +10,11 @@
 
 
 #include "ScStub.h"
+#include "MapIdEnum.h"
+#include "Enums.h"
 
 
 // External type names
-enum map_id;
-enum UnitClassifactions;	// ** Typo **
 struct LOCATION;
 struct MAP_RECT;
 struct MrRec;

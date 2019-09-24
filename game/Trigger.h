@@ -4,11 +4,10 @@
 #endif
 
 #include "ScStub.h"
+#include "MapIdEnum.h"
+#include "Enums.h"
 
 // External type names
-enum map_id;
-enum compare_mode;
-enum trig_res;
 class Unit;
 class ScGroup;
 

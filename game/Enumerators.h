@@ -8,8 +8,9 @@
 //		 or traverse a list of units one unit at a time.
 
 
+#include "MapIdEnum.h"
+
 // External type names
-enum map_id;
 struct LOCATION;
 struct MAP_RECT;
 class ScGroup;
