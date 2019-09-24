@@ -1,4 +1,7 @@
 #pragma once
+#ifndef OP2
+#define OP2 __declspec(dllimport)
+#endif
 
 // Outpost2 uses an AIModDesc structure to store and pass information about a mission DLL.
 // See RequiredExports.h for the full definition of AIModDesc.

@@ -1,4 +1,7 @@
 #pragma once
+#ifndef OP2
+#define OP2 __declspec(dllimport)
+#endif
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
