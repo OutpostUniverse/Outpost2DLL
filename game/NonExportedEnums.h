@@ -10,7 +10,7 @@
 
 
 
-
+[[deprecated("AllPlayers will be removed in a future release of Outpost2DLL, Use enum PlayerNum::PlayerAll instead")]]
 const int AllPlayers = -1;
 
 enum PlayerNum
