@@ -16,6 +16,7 @@ struct MAP_RECT;
 class ScGroup;
 class Unit;
 
+#pragma pack(push, 1)
 
 // Private UnitNode structure that should have no external access
 struct UnitNode
@@ -25,6 +26,9 @@ struct UnitNode
 	Unit* unit;
 };
 
+static_assert(12 == sizeof(UnitNode), "UnitNode is an unexpected size");
+
+#pragma pack(pop)
 
 // ------------------------------------------------------------------------
 // Note: All Enumerators implement a GetNext function, which returns

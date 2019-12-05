@@ -17,6 +17,8 @@
 //		 exported by Outpost2.exe. (Essentially these structs are
 //		 really classes in disguise.)
 
+#pragma pack(push, 1)
+
 struct OP2 LOCATION
 {
 public:
@@ -31,6 +33,8 @@ public:
 public:
 	int x, y;
 };
+
+static_assert(8 == sizeof(LOCATION), "LOCATION is an unexpected size");
 
 struct OP2 MAP_RECT
 {
@@ -53,6 +57,7 @@ public:
 	int x1, y1, x2, y2;		// Top left: (x1, y1), Bottom right: (x2, y2)
 };
 
+static_assert(16 == sizeof(MAP_RECT), "MAP_RECT is an unexpected size");
 
 // Note: These following structs have their names defined by the exported
 //		 functions from Outpost2.exe but none of their fields are defined
@@ -67,6 +72,8 @@ struct OP2 PatrolRoute
 	LOCATION* waypoints;	// Max waypoints = 8, set Location.x = -1 for last waypoint in list if list is short
 };
 
+static_assert(8 == sizeof(PatrolRoute), "PatrolRoute is an unexpected size");
+
 struct OP2 MrRec
 {
 	map_id unitType;
@@ -74,6 +81,8 @@ struct OP2 MrRec
 	int unknown1; // -1 to terminate list
 	int unknown2; // -1 to terminate list
 };
+
+static_assert(16 == sizeof(MrRec), "MrRec is an unexpected size");
 
 struct OP2 PWDef
 {
@@ -90,12 +99,13 @@ struct OP2 PWDef
 	int time3;
 };
 
+static_assert(44 == sizeof(PWDef), "PWDef is an unexpected size");
+
 // CommandPackets seem to have a set maximum of 0x74 bytes
 // Note: The compiler must be told to pack this structure since the
 //		 short dataLength would otherwise have 2 padding bytes after
 //		 it which would mess up the rest of the structure.
 
-#pragma pack(push, 1)
 struct OP2 CommandPacket
 {
 	int type;				// 0x00 Type of command - see secret list :)
@@ -104,8 +114,8 @@ struct OP2 CommandPacket
 	int unknown;			// 0x0A **TODO** figure this out (only used for network traffic?)
 	char dataBuff[0x66];	// 0x0E Dependent on message type
 };
-#pragma pack(pop)
 
+static_assert(116 == sizeof(CommandPacket), "CommandPacket is an unexpected size");
 
 // Size: 0x20  [0x20 = 32, or 8 dwords]  [Note: last 2 fields are shorts]
 struct OP2 UnitRecord
@@ -120,3 +130,7 @@ struct OP2 UnitRecord
 	short cargoType;							// 0x1C
 	short cargoAmount;							// 0x1E
 };
+
+static_assert(32 == sizeof(UnitRecord), "UnitRecord is an unexpected size");
+
+#pragma pack(pop)
