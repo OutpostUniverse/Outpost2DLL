@@ -19,15 +19,15 @@ public:
 	void GetCDDir(char *);
 	int GetFilePath(char const *, char *);
 	void GetInstalledDir(char *);
-	int Init(void);
-	int InitCDDir(void);
-	void InitInstalledDir(void);
+	int Init();
+	int InitCDDir();
+	void InitInstalledDir();
 	void* LockStream(char const *, int *);
 	StreamIO* OpenStream(char const *);
 	void ReleaseStream(StreamIO *);
-	void ShutDown(void);
+	void ShutDown();
 	void UnlockStream(void *);
-	void VerifyCD(void);
+	void VerifyCD();
 };
 
 // Global ResManager object that should be used, instead of creating a new ResManager

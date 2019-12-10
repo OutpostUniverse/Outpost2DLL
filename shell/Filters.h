@@ -11,9 +11,9 @@ class OP2 Filter
 {
 public:
 	Filter(Filter const &);
-	Filter(void);
+	Filter();
 	Filter & operator=(class Filter const &);
-	static Filter * __fastcall GetCapture(void);
+	static Filter * __fastcall GetCapture();
 	virtual int OnUIEvent(IWnd *,unsigned int, unsigned int, long, int);
 	void ReleaseCapture(IWnd *);
 	void SetCapture(IWnd *, int);
@@ -26,9 +26,9 @@ class OP2 GroupFilter
 {
 public:
 	GroupFilter(GroupFilter const &);
-	GroupFilter(void);
+	GroupFilter();
 	class GroupFilter & operator=(GroupFilter const &);
-	class SubFilter * GetSubFilter(void) const ;
+	class SubFilter * GetSubFilter() const ;
 	virtual int OnUIEvent(IWnd *, unsigned int, unsigned int, long, int);
 	void SetSubFilter(SubFilter *);
 };
@@ -37,7 +37,7 @@ class OP2 SubFilter
 {
 public:
 	SubFilter(SubFilter const &);
-	SubFilter(void);
+	SubFilter();
 	SubFilter & operator=(SubFilter const &);
 	virtual int OnUIEvent(IWnd *, unsigned int, unsigned int, long, int);
 	void ReleaseCapture(GroupFilter *, IWnd *);

@@ -27,20 +27,20 @@ class OP2 IWnd
 {
 public:
 	IWnd(IWnd const &);
-	IWnd(void);
-	virtual ~IWnd(void);
+	IWnd();
+	virtual ~IWnd();
 	IWnd & operator=(IWnd const &);
 	virtual int CallFilters(unsigned int, unsigned int, long);
 	virtual int CreateEx(unsigned long,char const *, unsigned long, int, int, int, int, HWND, HMENU, void *, HINSTANCE);
-	virtual void Destroy(void);
-	FilterNode * FindNode(Filter *,int);
+	virtual void Destroy();
+	FilterNode * FindNode(Filter *, int);
 	static IWnd * __fastcall FromHWND(HWND);
 	static long __stdcall IWndCbtFilterHook(int, unsigned int, long);
 	void InstallFilter(Filter *, int, FilterPositions, FilterOptions);
 	void RemoveFilter(Filter *, int);
-	virtual long WndProc(unsigned int,unsigned int, long);
-	static long __stdcall _WndProc(HWND,unsigned int, unsigned int, long);
+	virtual long WndProc(unsigned int, unsigned int, long);
+	static long __stdcall _WndProc(HWND, unsigned int, unsigned int, long);
 
 private:
-	virtual char const* RegisterClassA(void);
+	virtual char const* RegisterClassA();
 };
