@@ -26,8 +26,6 @@ enum MissionTypes
 	MultiLastOneStanding	= -8, //0xF8	// ml<x>
 };
 
-#pragma pack(push, 1)
-
 // Structure for important data exports needed for OP2 to recognize the level
 struct AIModDesc
 {
@@ -55,7 +53,6 @@ struct AIModDescEx {
 
 static_assert(32 == sizeof(AIModDescEx), "AIModDesc is an unexpected size");
 
-#pragma pack(pop)
 
 // Helper Macros to define the required data exports
 
@@ -87,7 +84,6 @@ static_assert(32 == sizeof(AIModDescEx), "AIModDesc is an unexpected size");
 	ExportLevelDetailsFull(levelDesc, mapName, techTreeName, missionType, numPlayers, maxTechLevel, bUnitOnlyMission) \
 	Export const AIModDescEx DescBlockEx = { numAiPlayers };
 
-#pragma pack(push, 1)
 
 // This struct defined a memory region to be Saved/Loaded to/from saved game files.
 // Note: See GetSaveRegions exported function
@@ -101,8 +97,6 @@ struct BufferDesc
 };
 
 static_assert(8 == sizeof(BufferDesc), "BufferDesc is an unexpected size");
-
-#pragma pack(pop)
 
 // Generate function to return global variable struct to Outpost2.exe for game save/load
 #define ExportSaveLoadData(globalVarStructName) \
