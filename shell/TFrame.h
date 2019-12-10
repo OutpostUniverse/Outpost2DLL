@@ -12,18 +12,18 @@ class OP2 TFrame : public IWnd
 {
 public:
 	TFrame(TFrame const &);
-	TFrame(void);
-	virtual ~TFrame(void);
+	TFrame();
+	virtual ~TFrame();
 	TFrame & operator=(TFrame const &);
-	virtual void Activate(void);
-	virtual void Deactivate(void);
-	virtual void OnIdle(void);
-	virtual void PostCreateDlg(void);
+	virtual void Activate();
+	virtual void Deactivate();
+	virtual void OnIdle();
+	virtual void PostCreateDlg();
 	void PostDelayedLoadMessage(char const *);
-	virtual void PreCreateDlg(void);
+	virtual void PreCreateDlg();
 
 protected:
 	void HandleMenuInit(HMENU, unsigned int, int);
-	virtual void ShutDown(void);
+	virtual void ShutDown();
 	virtual long WndProc(unsigned int, unsigned int, long);
 };

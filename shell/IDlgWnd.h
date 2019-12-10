@@ -11,21 +11,21 @@ class OP2 IDlgWnd : public IWnd
 {
 public:
 	IDlgWnd(IDlgWnd const &);
-	IDlgWnd(void);
-	virtual ~IDlgWnd(void);
+	IDlgWnd();
+	virtual ~IDlgWnd();
 	IDlgWnd & operator=(IDlgWnd const &);
 	static IDlgWnd * __fastcall DlgFromHWND(HWND);
 	virtual int DlgProc(unsigned int, unsigned int, long);
 	virtual int DoModal(char const *, HINSTANCE);
 	virtual int DoModeless(char const *, HINSTANCE, HWND);
-	static HWND __fastcall GetModalParent(void);
-	int IsModalParentSet(void) const ;
+	static HWND __fastcall GetModalParent();
+	int IsModalParentSet() const ;
 	static int __fastcall PretranslateModeless(struct tagMSG *);
 	void SetAsModalParent(int);
 
 private:
-	void InsertHWNDChain(void);
-	void RemoveHWNDChain(void);
+	void InsertHWNDChain();
+	void RemoveHWNDChain();
 	static int __stdcall _DlgProc(HWND,unsigned int, unsigned int, long);
 	static int nModelessCount;
 	static IDlgWnd *pFirst;

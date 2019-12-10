@@ -8,11 +8,11 @@ class OP2 CConfig
 {
 public:
 	CConfig(char const *filename);
-	~CConfig(void);
+	~CConfig();
 	CConfig & operator=(CConfig const &);
 	int CopyIniFile(char const *);
-	int FileExists(void);
-	void Flush(void);
+	int FileExists();
+	void Flush();
 	int GetInt(char const *, char const *, int);
 	int GetInt(char const *, int);
 	int GetString(char const *, char const *, char *, unsigned int, char const *);
