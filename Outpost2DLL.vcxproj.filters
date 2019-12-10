@@ -95,11 +95,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="Lib\Outpost2DLL.lib">
-      <Filter>Lib</Filter>
-    </Library>
+    <ClCompile Include="DummyMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DummyMain.cpp" />
+    <Library Include="Lib\Outpost2.lib">
+      <Filter>Lib</Filter>
+    </Library>
   </ItemGroup>
 </Project>

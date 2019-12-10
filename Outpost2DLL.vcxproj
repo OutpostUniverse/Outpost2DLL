@@ -40,7 +40,7 @@
     <ClInclude Include="shell\UIState.h" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="Lib\Outpost2DLL.lib" />
+    <Library Include="Lib\Outpost2.lib" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}</ProjectGuid>
