@@ -17,8 +17,6 @@
 //		 exported by Outpost2.exe. (Essentially these structs are
 //		 really classes in disguise.)
 
-#pragma pack(push, 1)
-
 struct OP2 LOCATION
 {
 public:
@@ -101,6 +99,8 @@ struct OP2 PWDef
 
 static_assert(44 == sizeof(PWDef), "PWDef is an unexpected size");
 
+#pragma pack(push, 1)
+
 // CommandPackets seem to have a set maximum of 0x74 bytes
 // Note: The compiler must be told to pack this structure since the
 //		 short dataLength would otherwise have 2 padding bytes after
@@ -117,6 +117,8 @@ struct OP2 CommandPacket
 
 static_assert(116 == sizeof(CommandPacket), "CommandPacket is an unexpected size");
 
+#pragma pack(pop)
+
 // Size: 0x20  [0x20 = 32, or 8 dwords]  [Note: last 2 fields are shorts]
 struct OP2 UnitRecord
 {
@@ -132,5 +134,3 @@ struct OP2 UnitRecord
 };
 
 static_assert(32 == sizeof(UnitRecord), "UnitRecord is an unexpected size");
-
-#pragma pack(pop)
