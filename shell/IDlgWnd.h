@@ -20,13 +20,13 @@ public:
 	virtual int DoModeless(char const *, HINSTANCE, HWND);
 	static HWND __fastcall GetModalParent();
 	int IsModalParentSet() const ;
-	static int __fastcall PretranslateModeless(struct tagMSG *);
+	static int __fastcall PretranslateModeless(tagMSG *);
 	void SetAsModalParent(int);
 
 private:
 	void InsertHWNDChain();
 	void RemoveHWNDChain();
-	static int __stdcall _DlgProc(HWND,unsigned int, unsigned int, long);
+	static int __stdcall _DlgProc(HWND, unsigned int, unsigned int, long);
 	static int nModelessCount;
 	static IDlgWnd *pFirst;
 };
