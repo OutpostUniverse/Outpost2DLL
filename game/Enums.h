@@ -62,9 +62,20 @@ enum MoraleLevels
 	moraleRotten,				// 4
 };
 
-// Used by ScGroup.GetFirstOfType, ScGroup.UnitCount, and classes
-// derived from ScGroup which inherit these functions
-// (BuildingGroup, FightGroup, MiningGroup)
+// UnitClassifactions is used by ScGroup.GetFirstOfType, ScGroup.UnitCount, and classes
+// derived from ScGroup which inherit these functions (BuildingGroup, FightGroup, MiningGroup)
+// Note: clsAttack applies to all attack vehicles with the following weapons:
+//		Microwave
+//		Laser
+//		Rail Gun
+//		Starflare
+//		Supernova
+//		RPG
+//		Acid Cloud
+//		Thor's Hammer
+//		Energy Cannon (Scorpions)
+// Note: Scorpions always appear in this classification (clsAttack), even
+//		 if the weapon is changed to ESG, EMP, Stickyfoam
 enum UnitClassifactions			// [Note: **Typo** in name]
 {
 	clsAttack = 0,				// 0 (Lynx, Panther, Tiger, Scorpion)  [Not ESG, EMP, or Stickyfoam]
@@ -87,21 +98,8 @@ enum UnitClassifactions			// [Note: **Typo** in name]
 	clsAll = 0x11,				// 11 All vehicles and buildings
 };
 
-typedef UnitClassifactions UnitClassifications;		// Typo fixing typedef
-// Note: clsAttack applies to all attack vehicles with the following weapons:
-//		Microwave
-//		Laser
-//		Rail Gun
-//		Starflare
-//		Supernova
-//		RPG
-//		Acid Cloud
-//		Thor's Hammer
-//		Energy Cannon (Scorpions)
-// Note: Scorpions always appear in this classification (clsAttack), even
-//		 if the weapon is changed to ESG, EMP, Stickyfoam
-
-
+// typedef fixing typo in UnitClassifactions name
+typedef UnitClassifactions UnitClassifications;
 
 // Used to define music playlists
 enum SongIds
