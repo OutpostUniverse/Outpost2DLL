@@ -46,6 +46,8 @@ public:	// Why not? =)
 	UnitNode* currentUnitNode;
 };
 
+static_assert(4 == sizeof(GroupEnumerator), "GroupEnumerator is an unexpected size");
+
 // Vehicles (enumerate all vehicles for a certain player)
 class OP2 PlayerVehicleEnum
 {
@@ -56,6 +58,8 @@ public:
 public:	// Why not? =)
 	void* currentUnit;
 };
+
+static_assert(4 == sizeof(PlayerVehicleEnum), "PlayerVehicleEnum is an unexpected size");
 
 // Buildings (enumerate all buildings of a certain type for a certain player)
 class OP2 PlayerBuildingEnum
@@ -69,6 +73,8 @@ public:	// Why not? =)
 	map_id buildingType;
 };
 
+static_assert(8 == sizeof(PlayerBuildingEnum), "PlayerBuildingEnum is an unexpected size");
+
 // Units (enumerate all units of a certain player)
 class OP2 PlayerUnitEnum
 {
@@ -81,6 +87,8 @@ public:	// Why not? =)
 	int playerNum;
 };
 
+static_assert(8 == sizeof(PlayerUnitEnum), "PlayerUnitEnum is an unexpected size");
+
 // InRange (enumerate all units within a given distance of a given location)
 class OP2 InRangeEnumerator
 {
@@ -91,6 +99,8 @@ public:
 private:
 	int unknown[13];	// **TODO** Fill in details
 };
+
+static_assert(4 * 13 == sizeof(InRangeEnumerator), "InRangeEnumerator is an unexpected size");
 
 // InRect (enumerate all units within a given rectangle)
 class OP2 InRectEnumerator
@@ -103,6 +113,8 @@ private:
 	int unknown[13];	// **TODO** Fill in details
 };
 
+static_assert(4 * 13 == sizeof(InRectEnumerator), "InRectEnumerator is an unexpected size");
+
 // Location (enumerate all units at a given location)
 class OP2 LocationEnumerator
 {
@@ -114,6 +126,8 @@ private:
 	int unknown[13];	// **TODO** Fill in details
 };
 
+static_assert(4 * 13 == sizeof(LocationEnumerator), "LocationEnumerator is an unexpected size");
+
 // Closest (enumerate all units ordered by their distance to a given location)
 class OP2 ClosestEnumerator
 {
@@ -124,3 +138,5 @@ public:
 private:
 	int unknown[13];	// **TODO** Fill in details
 };
+
+static_assert(4 * 13 == sizeof(ClosestEnumerator), "ClosestEnumerator is an unexpected size");

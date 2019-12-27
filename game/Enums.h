@@ -86,6 +86,7 @@ enum UnitClassifactions			// [Note: **Typo** in name]
 	clsNotSet = 0x10,			// 10
 	clsAll = 0x11,				// 11 All vehicles and buildings
 };
+
 typedef UnitClassifactions UnitClassifications;		// Typo fixing typedef
 // Note: clsAttack applies to all attack vehicles with the following weapons:
 //		Microwave

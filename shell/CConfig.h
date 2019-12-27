@@ -23,4 +23,6 @@ public:
 	int SetString(char const *, char const *);
 };
 
+
+
 OP2 CConfig gConfigFile;

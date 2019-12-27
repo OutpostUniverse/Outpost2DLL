@@ -115,3 +115,5 @@ public:	// Why not? :)
 		PlayerCheckIndexAdvancedLab			= 7,	// Has Structure, Kit loaded in Convec, or can build
 	};
 };
+
+static_assert(12 == sizeof(_Player), "_Player is an unexpected size");

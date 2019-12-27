@@ -27,7 +27,11 @@ public:
 		int untilIndex;
 	};
 
+	static_assert(8== sizeof(Range), "Range is an unexpected size");
+
 	int numUnits;					// 0x0
 	Range classRange[16];			// 0x4  Range of unit indexes in the unitRecordTable for each class
 	UnitRecord* unitRecordTable;	// 0x84
 };
+
+static_assert(4 + 8 * 16 + 4 == sizeof(UnitBlock), "UnitBlock is an unexpected size");

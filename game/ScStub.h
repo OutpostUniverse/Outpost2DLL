@@ -31,3 +31,5 @@ public:
 public:	// Why not? ;)
 	int stubIndex;
 };
+
+static_assert(4 == sizeof(ScStub), "ScStub is an unexpected size");

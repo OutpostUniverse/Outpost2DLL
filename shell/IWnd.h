@@ -44,3 +44,5 @@ public:
 private:
 	virtual char const* RegisterClassA();
 };
+
+static_assert(4 == sizeof(IWnd), "IWnd is an unexpected size");
