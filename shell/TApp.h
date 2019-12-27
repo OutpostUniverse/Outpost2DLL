@@ -30,6 +30,8 @@ class TLobby;
 class UIState;
 struct GameStartInfo;
 
+// Imported from DirectX headers
+struct IDirectDraw;
 
 // The TApp object represents the core of Outpost2.exe.
 // It is called into directly from WinMain and is responsible for main application control.
@@ -55,7 +57,7 @@ public:
 	void GetAppDesc(char *);
 	HINSTANCE GetBmpInst() const;
 	HINSTANCE GetCurInst() const;
-	struct IDirectDraw * GetDirectDraw() const;
+	IDirectDraw * GetDirectDraw() const;
 	HINSTANCE GetDlgInst() const;
 	void GetHelp();
 	HINSTANCE GetIconInst() const;
