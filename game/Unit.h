@@ -87,3 +87,5 @@ private:
 public:	// Why not? :)
 	int unitID;
 };
+
+static_assert(4 == sizeof(Unit), "Unit is an unexpected size");
