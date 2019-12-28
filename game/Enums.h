@@ -62,32 +62,8 @@ enum MoraleLevels
 	moraleRotten,				// 4
 };
 
-// Used by ScGroup.GetFirstOfType, ScGroup.UnitCount, and classes
-// derived from ScGroup which inherit these functions
-// (BuildingGroup, FightGroup, MiningGroup)
-enum UnitClassifactions			// [Note: **Typo** in name]
-{
-	clsAttack = 0,				// 0 (Lynx, Panther, Tiger, Scorpion)  [Not ESG, EMP, or Stickyfoam]
-	clsESG,						// 1 (Lynx, Panther, Tiger)
-	clsEMP,						// 2 (Lynx, Panther, Tiger)
-	clsStickyfoam,				// 3 (Lynx, Panther, Tiger)
-	clsSpider,					// 4
-	clsConvec,					// 5
-	clsRepairVehicle,			// 6
-	clsCargoTruck,				// 7
-	clsEarthworker,				// 8
-	clsColony,					// 9 (clsVehicle, not specified elsewhere) (RoboSurveyor, RoboMiner, GeoCon, Scout, RoboDozer, EvacuationTransport)
-	clsVehicleFactory,			// A
-	clsArachnidFactory,			// B
-	clsStructureFactory,		// C
-	clsOreMine,					// D (CommonOreMine, RareOreMine)
-	clsGuardPost,				// E
-	clsBuilding,				// F (more like non vehicle, and non other specified class) (does not include Arachnid Factory, includes beacons, disasters, Blast, Tube, pretty much any non vehicle?)
-	clsNotSet = 0x10,			// 10
-	clsAll = 0x11,				// 11 All vehicles and buildings
-};
-
-typedef UnitClassifactions UnitClassifications;		// Typo fixing typedef
+// UnitClassifactions is used by ScGroup.GetFirstOfType, ScGroup.UnitCount, and classes
+// derived from ScGroup which inherit these functions (BuildingGroup, FightGroup, MiningGroup)
 // Note: clsAttack applies to all attack vehicles with the following weapons:
 //		Microwave
 //		Laser
@@ -100,8 +76,30 @@ typedef UnitClassifactions UnitClassifications;		// Typo fixing typedef
 //		Energy Cannon (Scorpions)
 // Note: Scorpions always appear in this classification (clsAttack), even
 //		 if the weapon is changed to ESG, EMP, Stickyfoam
+enum UnitClassifactions			// [Note: **Typo** in name]
+{
+	clsAttack = 0,				// 0x0 (Lynx, Panther, Tiger, Scorpion)  [Not ESG, EMP, or Stickyfoam]
+	clsESG,						// 0x1 (Lynx, Panther, Tiger)
+	clsEMP,						// 0x2 (Lynx, Panther, Tiger)
+	clsStickyfoam,				// 0x3 (Lynx, Panther, Tiger)
+	clsSpider,					// 0x4
+	clsConvec,					// 0x5
+	clsRepairVehicle,			// 0x6
+	clsCargoTruck,				// 0x7
+	clsEarthworker,				// 0x8
+	clsColony,					// 0x9 (clsVehicle, not specified elsewhere) (RoboSurveyor, RoboMiner, GeoCon, Scout, RoboDozer, EvacuationTransport)
+	clsVehicleFactory,			// 0xA
+	clsArachnidFactory,			// 0xB
+	clsStructureFactory,		// 0xC
+	clsOreMine,					// 0xD (CommonOreMine, RareOreMine)
+	clsGuardPost,				// 0xE
+	clsBuilding,				// 0xF (more like non vehicle, and non other specified class) (does not include Arachnid Factory, includes beacons, disasters, Blast, Tube, pretty much any non vehicle?)
+	clsNotSet = 0x10,			// 0x10
+	clsAll = 0x11,				// 0x11 All vehicles and buildings
+};
 
-
+// typedef fixing typo in UnitClassifactions name
+typedef UnitClassifactions UnitClassifications;
 
 // Used to define music playlists
 enum SongIds
