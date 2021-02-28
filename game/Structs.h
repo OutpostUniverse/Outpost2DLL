@@ -45,6 +45,10 @@ public:
 	void ClipToMap();
 	void FromPtSize(const LOCATION&, const LOCATION&);
 	int Height() const;
+	// Use positive values to grow the rectangle and negative values to shrink the rectangle
+	// Automatically wraps coordinates if needed for around the world maps
+	//     unitsWide: X1 decreases by value and X2 increases by value
+	//     unitsHigh: Y1 decreases by value and Y2 increases by value
 	void Inflate(int unitsWide, int unitsHigh);
 	void Offset(int shiftRight, int shiftDown);
 	LOCATION RandPt() const;
