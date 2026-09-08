@@ -2,7 +2,7 @@
 
 
 // Note: This file stores all the enums exported from Outpost2.exe except for the
-//		 map_id enum, which is important enough to get it's own file. =)
+//		 map_id enum, which is important enough to get its own file. =)
 
 
 // Used by various trigger creation functions

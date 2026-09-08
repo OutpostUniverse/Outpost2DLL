@@ -9,7 +9,7 @@
 
 
 // Include all the header files which contain
-// defintions of exports from Outpost2.exe
+// definitions of exports from Outpost2.exe
 #include "game/MapIdEnum.h"
 #include "game/Enums.h"
 #include "game/Structs.h"
