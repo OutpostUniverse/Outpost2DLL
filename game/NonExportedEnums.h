@@ -6,7 +6,7 @@
 //		 represent functions hardcoded into the exe and will not change.
 //		 These values are used as function arguments where the parameter
 //		 type is simply set to an int, but each int value has a specific
-//		 and seperate meaning.
+//		 and separate meaning.
 
 
 
@@ -32,7 +32,7 @@ enum PlayerDifficulty
 	DiffHard = 2,
 };
 
-// Mining beacon's
+// Mining beacons
 enum BeaconTypes
 {
 	OreTypeRandom = -1,
@@ -40,7 +40,7 @@ enum BeaconTypes
 	OreTypeRare = 1,
 };
 
-// Yield Type's (Number of "Bars" a mine has)
+// Yield Types (Number of "Bars" a mine has)
 enum Yield
 {
 	BarRandom = -1,
@@ -97,7 +97,7 @@ enum UnitDirection
 enum CellTypes
 {
 	cellFastPassible1 = 0,	// Rock vegetation
-	cellImpassible2,		// Meteor craters, cracks/crevases
+	cellImpassible2,		// Meteor craters, cracks/crevasses
 	cellSlowPassible1,		// Lava rock (dark)
 	cellSlowPassible2,		// Rippled dirt/Lava rock bumps
 	cellMediumPassible1,	// Dirt
