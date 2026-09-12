@@ -3,7 +3,7 @@
 #define OP2 __declspec(dllimport)
 #endif
 
-// Note: This file contains the defintion of the TethysGame class
+// Note: This file contains the definition of the TethysGame class
 //		which controls the overall game environment
 
 #include "MapIdEnum.h"
@@ -95,7 +95,7 @@ public:
 	// EMP Missile
 	//  Note: FindEMPMissileTarget searches aligned 8x8 blocks, for the block with the greatest weight
 	//  Note: The target location is at the block center (+3, +3)
-	//  Note: Targets first found block of heighest (non-negative) weight, or the first block if all blocks have negative weight
+	//  Note: Targets first found block of highest (non-negative) weight, or the first block if all blocks have negative weight
 	//  Note: Target player military units weigh 64, non-target player military units weigh -32, and non-target player non-military units weigh 1.
 	static LOCATION __fastcall FindEMPMissleTarget(int startTileX, int startTileY, int endTileX, int endTileY, int destPlayerNum);
 	// Launches an EMP missile. May be launched from off screen (no spaceport required).
