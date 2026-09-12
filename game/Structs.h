@@ -6,7 +6,7 @@
 
 // Note: This file contains all the exported structures from Outpost2.exe.
 // Note: Some of these structures are really more like full classes but
-//		 since they called them struct's we'll let that one slide. =)
+//		 since they called them structs we'll let that one slide. =)
 
 
 #include "MapIdEnum.h"
