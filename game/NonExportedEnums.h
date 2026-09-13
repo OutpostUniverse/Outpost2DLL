@@ -133,11 +133,11 @@ enum CellTypes
 // Color of structures and units belonging to a given player
 enum PlayerColor
 {
-	PlayerBlue = 0, //Standard Eden color
-	PlayerRed,      //Standard Plymouth color
+	PlayerBlue = 0,	// Standard Eden color
+	PlayerRed,		// Standard Plymouth color
 	PlayerGreen,
 	PlayerYellow,
 	PlayerCyan,
 	PlayerMagenta,
-	PlayerBlack     //Not selectable as a player color from the multiplayer game initialization screen
+	PlayerBlack,	// Not selectable as a player color from the multiplayer game initialization screen
 };

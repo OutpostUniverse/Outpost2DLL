@@ -31,7 +31,7 @@ struct AIModDesc
 {
 	// Important level details
 	int missionType;			// Mission type (defined above) or mission number (positive values) for campaign games
-	int numPlayers;				// Number of players (on a multipalyer map)
+	int numPlayers;				// Number of players (on a multiplayer map)
 	int maxTechLevel;			// Maximum tech level (Set to 12 to enable all techs)
 	int boolUnitMission;		// Set to 1 to disable most reports (suitable for unit-only missions)
 	// Extra baggage that doesn't need to be set properly
@@ -85,10 +85,10 @@ static_assert(32 == sizeof(AIModDescEx), "AIModDesc is an unexpected size");
 	Export const AIModDescEx DescBlockEx = { numAiPlayers };
 
 
-// This struct defined a memory region to be Saved/Loaded to/from saved game files.
+// This struct defines a memory region to be Saved/Loaded to/from saved game files.
 // Note: See GetSaveRegions exported function
 // Note: This implies all level data must be statically declared. Avoid using "new".
-// Note: Setting bufferStart to 0 means no data (include buffer size) is present in the saved game file
+// Note: Setting bufferStart to 0 means no data (including buffer size) is present in the saved game file
 // Note: Setting bufferStart to non-zero and length to 0 means the size (4 bytes) is written to the saved game file.
 struct BufferDesc
 {
